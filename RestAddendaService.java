@@ -28,31 +28,31 @@ public class RestAddendaService {
         this.achAddendaService = achAddendaService;
     }
 
-    @ApiOperation(value = "11111111111111111111111 addenda string using the given addenda details.")
+    @ApiOperation(value = "")
     @POST
     @Path("/{sec_code}/generate")
     @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
     @Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-    public ACHAddendaGenerateRsType generateAddenda(@ApiParam(value = "1 description.", required = true) @PathParam("sec_code") String paymentType, @ApiParam(value = "1 description.b", allowableValues = "1 Enum PPD ") @PathParam("body") ACHAddendaGenerateRqType request) throws ACHAddendaFault {
+    public ACHAddendaGenerateRsType generateAddenda(@ApiParam(value = "1.", required = true) @PathParam("sec_code") String paymentType, @ApiParam(value = "", allowableValues = " ") @PathParam("body") ACHAddendaGenerateRqType request) throws ACHAddendaFault {
         request.setPaymentType(paymentType);
         return achAddendaService.generateAddenda(request);
     }
 
-    @ApiOperation(value = "22222222222222222222Validate addenda for a sec_code")
+    @ApiOperation(value = "2 for a sec_code")
     @POST
     @Path("/{sec_code}/validator")
     @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
     @Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-    public ACHAddendaValidateRsType validateAddenda(@ApiParam(value = "2222 description A Request object capturing details of addenda", allowableValues = "2 enum A 2") @PathParam("body") ACHAddendaValidateRqType request) throws ACHAddendaFault {
+    public ACHAddendaValidateRsType validateAddenda(@ApiParam(value = "", allowableValues = "2") @PathParam("body") ACHAddendaValidateRqType request) throws ACHAddendaFault {
         return achAddendaService.validateAddenda(request);
     }
 
-    @ApiOperation(value = "3333333333333333333   Parse the given addenda and return back the addenda details.")
+    @ApiOperation(value = "ils.")
     @POST
     @Path("/{sec_code}/parse")
     @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
     @Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-    public ACHAddendaParseRsType parseStateWiseAddenda(@ApiParam(value = "3    AAA", required = true, allowableValues = " 3  a  ENUM PPD 2 WEB CTX TAX CHILD") @PathParam("sec_code") String paymentType, @ApiParam(value = "3 B descriotiionn .AAAAAAAAAARequest object capturing details of addenda") @PathParam("h") ACHAddendaParseRqType request) throws ACHAddendaFault {
+    public ACHAddendaParseRsType parseStateWiseAddenda(@ApiParam(value = "", required = true, allowableValues = " D") @PathParam("sec_code") String paymentType, @ApiParam(value = "nda") @PathParam("h") ACHAddendaParseRqType request) throws ACHAddendaFault {
         request.setPaymentType(paymentType);
         return achAddendaService.parseAddenda(request);
     }
