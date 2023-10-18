@@ -38,16 +38,7 @@ public class RestAccountActionService {
         return getService().getAccountActions(request);
     }
 
-    @GET
-    @Path("/user")
-    @ApiOperation(value = "Use to retreive the Actions list of user for account balance widget")
-    @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-    @Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-    public GetUserActionsRsType getUserActions() throws UserActionsFault {
-        GetUserActionsRqType request = new GetUserActionsRqType();
-        return getService().getUserActions(request);
-    }
-
+  
     /**
      * @return the service
      */
