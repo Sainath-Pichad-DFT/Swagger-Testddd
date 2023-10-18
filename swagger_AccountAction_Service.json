@@ -1,0 +1,442 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "",
+    "version" : "6.9.0.0.0.0-SNAPSHOT",
+    "title" : "Universal Online Banker : Account Action Service",
+    "contact" : {
+      "name" : "ACI HELP 24",
+      "url" : "www.aciworldwide.com/help24",
+      "email" : ""
+    },
+    "license" : {
+      "name" : "ACI Worldwide License 1.1",
+      "url" : "http://aciworldwide.com/terms-of-use"
+    }
+  },
+  "host" : "modelbank.bankonline.com",
+  "basePath" : "/uob/api",
+  "tags" : [ {
+    "name" : "Account Action"
+  } ],
+  "schemes" : [ "https" ],
+  "paths" : {
+    "/accountactions" : {
+      "get" : {
+        "tags" : [ "Account Action" ],
+        "summary" : "Use to retreive the Actions of accounts for account balance widget",
+        "description" : "",
+        "operationId" : "getAccountActions",
+        "consumes" : [ "application/json", "application/xml" ],
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "name" : "accountIdents",
+          "in" : "query",
+          "description" : "Account Identifiers",
+          "required" : true,
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          },
+          "collectionFormat" : "multi"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/GetAccountActionsRsType"
+            }
+          }
+        }
+      }
+    },
+    "/accountactions/user" : {
+      "get" : {
+        "tags" : [ "Account Action" ],
+        "summary" : "Use to retreive the Actions list of user for account balance widget",
+        "description" : "",
+        "operationId" : "getUserActions",
+        "consumes" : [ "application/json", "application/xml" ],
+        "produces" : [ "application/json", "application/xml" ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/GetUserActionsRsType"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "ActionType" : {
+      "type" : "object",
+      "required" : [ "actionCode", "actionDesc", "url" ],
+      "properties" : {
+        "url" : {
+          "type" : "string"
+        },
+        "actionCode" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "ActionCode"
+          }
+        },
+        "actionDesc" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "ActionDesc"
+          }
+        }
+      }
+    },
+    "ActionsType" : {
+      "type" : "object",
+      "required" : [ "accountIdent" ],
+      "properties" : {
+        "accountIdent" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "AccountIdent"
+          }
+        },
+        "action" : {
+          "type" : "array",
+          "xml" : {
+            "name" : "Action"
+          },
+          "items" : {
+            "xml" : {
+              "name" : "Action"
+            },
+            "$ref" : "#/definitions/ActionType"
+          }
+        }
+      }
+    },
+    "DynamicAttributeType" : {
+      "type" : "object",
+      "required" : [ "dynamicAttributeVersion", "extendedFieldName", "extendedFieldType", "extendedFieldValue" ],
+      "properties" : {
+        "extendedFieldName" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "ExtendedFieldName"
+          }
+        },
+        "extendedFieldValue" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "ExtendedFieldValue"
+          }
+        },
+        "extendedFieldType" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "ExtendedFieldType"
+          }
+        },
+        "dynamicAttributeVersion" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "DynamicAttributeVersion"
+          },
+          "default" : "1"
+        }
+      }
+    },
+    "GetAccountActionsRsType" : {
+      "type" : "object",
+      "required" : [ "baseServiceRsVersion", "getAccountActionsRsVersion", "requestUID", "status" ],
+      "properties" : {
+        "requestUID" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "RequestUID"
+          },
+          "default" : "DummyRequestIDValue"
+        },
+        "createdDate" : {
+          "type" : "string",
+          "format" : "date-time",
+          "xml" : {
+            "name" : "CreatedDate"
+          }
+        },
+        "status" : {
+          "xml" : {
+            "name" : "Status"
+          },
+          "$ref" : "#/definitions/MessageStatusInfoType"
+        },
+        "statusChain" : {
+          "type" : "array",
+          "xml" : {
+            "name" : "StatusChain"
+          },
+          "items" : {
+            "xml" : {
+              "name" : "StatusChain"
+            },
+            "$ref" : "#/definitions/MessageStatusInfoType"
+          }
+        },
+        "baseServiceRsVersion" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "BaseServiceRsVersion"
+          },
+          "default" : "5"
+        },
+        "securityContext" : {
+          "type" : "array",
+          "xml" : {
+            "name" : "SecurityContext"
+          },
+          "items" : {
+            "xml" : {
+              "name" : "SecurityContext"
+            },
+            "$ref" : "#/definitions/SecurityContextType"
+          }
+        },
+        "traceIdent" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "TraceIdent"
+          }
+        },
+        "authReqId" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "AuthReqId"
+          }
+        },
+        "actions" : {
+          "type" : "array",
+          "xml" : {
+            "name" : "Actions"
+          },
+          "items" : {
+            "xml" : {
+              "name" : "Actions"
+            },
+            "$ref" : "#/definitions/ActionsType"
+          }
+        },
+        "getAccountActionsRsVersion" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "GetAccountActionsRsVersion"
+          },
+          "default" : "1"
+        },
+        "mfarsHeader" : {
+          "$ref" : "#/definitions/MFARsHeaderType"
+        }
+      }
+    },
+    "GetUserActionsRsType" : {
+      "type" : "object",
+      "required" : [ "baseServiceRsVersion", "getUserActionsRsVersion", "requestUID", "status" ],
+      "properties" : {
+        "requestUID" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "RequestUID"
+          },
+          "default" : "DummyRequestIDValue"
+        },
+        "createdDate" : {
+          "type" : "string",
+          "format" : "date-time",
+          "xml" : {
+            "name" : "CreatedDate"
+          }
+        },
+        "status" : {
+          "xml" : {
+            "name" : "Status"
+          },
+          "$ref" : "#/definitions/MessageStatusInfoType"
+        },
+        "statusChain" : {
+          "type" : "array",
+          "xml" : {
+            "name" : "StatusChain"
+          },
+          "items" : {
+            "xml" : {
+              "name" : "StatusChain"
+            },
+            "$ref" : "#/definitions/MessageStatusInfoType"
+          }
+        },
+        "baseServiceRsVersion" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "BaseServiceRsVersion"
+          },
+          "default" : "5"
+        },
+        "securityContext" : {
+          "type" : "array",
+          "xml" : {
+            "name" : "SecurityContext"
+          },
+          "items" : {
+            "xml" : {
+              "name" : "SecurityContext"
+            },
+            "$ref" : "#/definitions/SecurityContextType"
+          }
+        },
+        "traceIdent" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "TraceIdent"
+          }
+        },
+        "authReqId" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "AuthReqId"
+          }
+        },
+        "actions" : {
+          "type" : "array",
+          "xml" : {
+            "name" : "Actions"
+          },
+          "items" : {
+            "xml" : {
+              "name" : "Actions"
+            },
+            "$ref" : "#/definitions/ActionType"
+          }
+        },
+        "getUserActionsRsVersion" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "GetUserActionsRsVersion"
+          },
+          "default" : "1"
+        },
+        "mfarsHeader" : {
+          "$ref" : "#/definitions/MFARsHeaderType"
+        }
+      }
+    },
+    "MFARsHeaderType" : {
+      "type" : "object",
+      "required" : [ "authenticationType", "challenge", "providerId" ],
+      "properties" : {
+        "state" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "signingCount" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "additionalAttributes" : {
+          "type" : "array",
+          "xml" : {
+            "name" : "AdditionalAttributes"
+          },
+          "items" : {
+            "xml" : {
+              "name" : "AdditionalAttributes"
+            },
+            "$ref" : "#/definitions/DynamicAttributeType"
+          }
+        },
+        "providerId" : {
+          "type" : "string",
+          "default" : "UNKNOWN"
+        },
+        "challenge" : {
+          "type" : "string",
+          "default" : "UNKNOWN"
+        },
+        "authenticationType" : {
+          "type" : "string",
+          "default" : "UNKNOWN"
+        },
+        "mfarsHeaderVersion" : {
+          "type" : "string"
+        }
+      }
+    },
+    "MessageStatusInfoType" : {
+      "type" : "object",
+      "required" : [ "code", "messageStatusInfoVersion" ],
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Code"
+          }
+        },
+        "severity" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Severity"
+          },
+          "enum" : [ "ERROR", "INFO", "WARNING" ]
+        },
+        "details" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Details"
+          }
+        },
+        "statusDate" : {
+          "type" : "string",
+          "format" : "date-time",
+          "xml" : {
+            "name" : "StatusDate"
+          }
+        },
+        "messageStatusInfoVersion" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "MessageStatusInfoVersion"
+          },
+          "default" : "2"
+        },
+        "additionalAttributes" : {
+          "type" : "array",
+          "xml" : {
+            "name" : "AdditionalAttributes"
+          },
+          "items" : {
+            "xml" : {
+              "name" : "AdditionalAttributes"
+            },
+            "$ref" : "#/definitions/DynamicAttributeType"
+          }
+        }
+      }
+    },
+    "SecurityContextType" : {
+      "type" : "object",
+      "required" : [ "format", "value" ],
+      "properties" : {
+        "format" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Format"
+          }
+        },
+        "value" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Value"
+          }
+        }
+      }
+    }
+  }
+}
