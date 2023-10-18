@@ -29,10 +29,10 @@ public class RestAccountActionService {
 
     @GET
     @Path("")
-    @ApiOperation(value = "Use to retreive the Actions of accounts for account balance widget")
+    @ApiOperation(value = "t")
     @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
     @Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-    public GetAccountActionsRsType getAccountActions(@ApiParam(value = "Account Identifiers", required = true) @QueryParam("accountIdents") List<String> accountIdents) throws AccountActionsFault {
+    public GetAccountActionsRsType getAccountActions(@ApiParam(value = "", required = true) @QueryParam("accountIdents") List<String> accountIdents) throws AccountActionsFault {
         GetAccountActionsRqType request = new GetAccountActionsRqType();
         request.getAccounts().addAll(accountIdents);
         return getService().getAccountActions(request);
