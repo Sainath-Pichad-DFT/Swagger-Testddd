@@ -17,7 +17,7 @@
   "host" : "modelbank.bankonline.com",
   "basePath" : "/uob/api",
   "tags" : [ {
-    "name" : "ACH Addenda"
+    "name" : "Convert Currency"
   } ],
   "schemes" : [ "https" ],
   "paths" : {
