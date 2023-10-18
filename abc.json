@@ -23,7 +23,7 @@
   "paths" : {
     "/addenda/ach/{sec_code}/generate" : {
       "post" : {
-        "tags" : [ "ACH Addenda" ],
+        "tags" : [ "Convert Currency" ],
         "summary" : "11111111111111111111111 addenda string using the given addenda details.",
         "description" : "",
         "operationId" : "generateAddenda",
