@@ -1,2755 +1,2963 @@
 {
-  "swagger" : "2.0",
-  "info" : {
-    "description" : "",
-    "version" : "6.9.0.0.0.0-SNAPSHOT",
-    "title" : "Universal Online Banker :Addenda Service",
-    "contact" : {
-      "name" : "ACI HELP 24",
-      "url" : "www.aciworldwide.com/help24",
-      "email" : ""
+  "swagger": "2.0",
+  "info": {
+    "description": "",
+    "version": "6.9.0.0.0.0-SNAPSHOT",
+    "title": "Universal Online Banker :Addenda Service",
+    "contact": {
+      "name": "ACI HELP 24",
+      "url": "www.aciworldwide.com/help24",
+      "email": ""
     },
-    "license" : {
-      "name" : "ACI Worldwide License 1.1",
-      "url" : "http://aciworldwide.com/terms-of-use"
+    "license": {
+      "name": "ACI Worldwide License 1.1",
+      "url": "http://aciworldwide.com/terms-of-use"
     }
   },
-  "host" : "modelbank.bankonline.com",
-  "basePath" : "/uob/api",
-  "tags" : [ {
-    "name" : "ACH Addenda"
-  } ],
-  "schemes" : [ "https" ],
-  "paths" : {
-    "/addenda/ach/{sec_code}/generate" : {
-      "post" : {
-        "tags" : [ "Convert Currency" ],
-        "summary" : "11111111111111111111111 addenda string using the given addenda details.",
-        "description" : "",
-        "operationId" : "generateAddenda",
-        "consumes" : [ "application/json", "application/xml" ],
-        "produces" : [ "application/json", "application/xml" ],
-        "parameters" : [ {
-          "name" : "sec_code",
-          "in" : "path",
-          "description" : "1 description.",
-          "required" : true,
-          "type" : "string"
-         
-        }, {
-          "in" : "body",
-          "name" : "body",
-          "description" : "1 description.b",
-          "required" : false,
-          "enum" : [ "1 Enum","PPD " ],
-          "schema" : {
-            "$ref" : "#/definitions/ACHAddendaGenerateRqType"
+  "host": "modelbank.bankonline.com",
+  "basePath": "/uob/api",
+  "tags": [
+    {
+      "name": "ACH Addenda"
+    }
+  ],
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/addenda/ach/{sec_code}/generate": {
+      "post": {
+        "tags": [
+          "Convert Currency"
+        ],
+        "summary": "** addenda string using the given addenda details.",
+        "description": "",
+        "operationId": "generateAddenda",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "sec_code",
+            "in": "path",
+            "description": "*1 description.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "*1 description.b",
+            "required": false,
+            "enum": [
+              "1* Enum",
+              "PPD "
+            ],
+            "schema": {
+              "$ref": "#/definitions/ACHAddendaGenerateRqType"
+            }
           }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "successful operation",
-            "schema" : {
-              "$ref" : "#/definitions/ACHAddendaGenerateRsType"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/ACHAddendaGenerateRsType"
             }
           }
         }
       }
     },
-    "/addenda/ach/{sec_code}/validator" : {
-      "post" : {
-        "tags" : [ "ACH Addenda" ],
-        "summary" : "22222222222222222222Validate addenda for a sec_code",
-        "description" : "",
-        "operationId" : "validateAddenda",
-        "consumes" : [ "application/json", "application/xml" ],
-        "produces" : [ "application/json", "application/xml" ],
-        "parameters" : [ {
-          "in" : "body",
-          "name" : "body",
-          "description" : "2222 description A Request object capturing details of addenda",
-          "required" : false,
-          "enum" : [ "2 enum A","2" ],
-          "schema" : {
-            "$ref" : "#/definitions/ACHAddendaValidateRqType"
+    "/addenda/ach/{sec_code}/validator": {
+      "post": {
+        "tags": [
+          "ACH Addenda"
+        ],
+        "summary": "&22222222222222222222Validate addenda for a sec_code",
+        "description": "",
+        "operationId": "validateAddenda",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "2&222 description A Request object capturing details of addenda",
+            "required": false,
+            "enum": [
+              "2 &enum A",
+              "2"
+            ],
+            "schema": {
+              "$ref": "#/definitions/ACHAddendaValidateRqType"
+            }
           }
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "successful operation",
-            "schema" : {
-              "$ref" : "#/definitions/ACHAddendaValidateRsType"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/ACHAddendaValidateRsType"
+            }
+          }
+        }
+      }
+    },
+    "/addenda/ach/{sec_code}/parse": {
+      "post": {
+        "tags": [
+          "ACH Addenda"
+        ],
+        "summary": "3333333$333333333333   Parse the given addenda and return back the addenda details.",
+        "description": "",
+        "operationId": "parseStateWiseAddenda",
+        "consumes": [
+          "application/json",
+          "application/xml"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml"
+        ],
+        "parameters": [
+          {
+            "name": "sec_code",
+            "in": "path",
+            "description": "3   $ AAA",
+            "required": true,
+            "type": "string",
+            "enum": [
+              " /  a  ENUM PPD",
+              "2",
+              "WEB",
+              "CTX",
+              "TAX",
+              "CHILD"
+            ]
+          },
+          {
+            "in": "body",
+            "name": "h",
+            "description": "3 B descriotiionn .AAAAAAAAAARequest object capturing details of addenda",
+            "required": false,
+            "schema": {
+              "$ref": "#/definitions/ACHAddendaParseRqType"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/ACHAddendaParseRsType"
             }
           }
         }
       }
     }
-  ,
-  "/addenda/ach/{sec_code}/parse" : {
-    "post" : {
-      "tags" : [ "ACH Addenda" ],
-      "summary" : "3333333333333333333   Parse the given addenda and return back the addenda details.",
-      "description" : "",
-      "operationId" : "parseStateWiseAddenda",
-      "consumes" : [ "application/json", "application/xml" ],
-      "produces" : [ "application/json", "application/xml" ],
-      "parameters" : [ {
-        "name" : "sec_code",
-        "in" : "path",
-        "description" : "3    AAA",
-        "required" : true,
-        "type" : "string",
-        "enum" : [ " 3  a  ENUM PPD", "2", "WEB", "CTX", "TAX", "CHILD" ]
-      }, {
-        "in" : "body",
-        "name" : "h",
-        "description" : "3 B descriotiionn .AAAAAAAAAARequest object capturing details of addenda",
-        "required" : false,
-        "schema" : {
-          "$ref" : "#/definitions/ACHAddendaParseRqType"
-        }
-      } ],
-      "responses" : {
-        "200" : {
-          "description" : "successful operation",
-          "schema" : {
-            "$ref" : "#/definitions/ACHAddendaParseRsType"
-          }
-        }
-      }
-    }
-  }
   },
-  "definitions" : {
-    "ACHAddendaGenerateRqType" : {
-      "type" : "object",
-      "required" : [ "addendaInfo", "baseServiceRqVersion", "paymentType", "requestUID" ],
-      "properties" : {
-        "requestUID" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "RequestUID"
+  "definitions": {
+    "ACHAddendaGenerateRqType": {
+      "type": "object",
+      "required": [
+        "addendaInfo",
+        "baseServiceRqVersion",
+        "paymentType",
+        "requestUID"
+      ],
+      "properties": {
+        "requestUID": {
+          "type": "string",
+          "xml": {
+            "name": "RequestUID"
           },
-          "default" : "DummyRequestIDValue"
+          "default": "DummyRequestIDValue"
         },
-        "createdDate" : {
-          "type" : "string",
-          "format" : "date-time",
-          "xml" : {
-            "name" : "CreatedDate"
+        "createdDate": {
+          "type": "string",
+          "format": "date-time",
+          "xml": {
+            "name": "CreatedDate"
           }
         },
-        "header" : {
-          "xml" : {
-            "name" : "Header"
+        "header": {
+          "xml": {
+            "name": "Header"
           },
-          "$ref" : "#/definitions/MessageHeaderType"
+          "$ref": "#/definitions/MessageHeaderType"
         },
-        "baseServiceRqVersion" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "BaseServiceRqVersion"
+        "baseServiceRqVersion": {
+          "type": "string",
+          "xml": {
+            "name": "BaseServiceRqVersion"
           },
-          "default" : "5"
+          "default": "5"
         },
-        "securityContext" : {
-          "type" : "array",
-          "xml" : {
-            "name" : "SecurityContext"
+        "securityContext": {
+          "type": "array",
+          "xml": {
+            "name": "SecurityContext"
           },
-          "items" : {
-            "xml" : {
-              "name" : "SecurityContext"
+          "items": {
+            "xml": {
+              "name": "SecurityContext"
             },
-            "$ref" : "#/definitions/SecurityContextType"
+            "$ref": "#/definitions/SecurityContextType"
           }
         },
-        "traceIdent" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "TraceIdent"
+        "traceIdent": {
+          "type": "string",
+          "xml": {
+            "name": "TraceIdent"
           }
         },
-        "mfaHeader" : {
-          "xml" : {
-            "name" : "MfaHeader"
+        "mfaHeader": {
+          "xml": {
+            "name": "MfaHeader"
           },
-          "$ref" : "#/definitions/MFAHeaderType"
+          "$ref": "#/definitions/MFAHeaderType"
         },
-        "requestHeader" : {
-          "xml" : {
-            "name" : "RequestHeader"
+        "requestHeader": {
+          "xml": {
+            "name": "RequestHeader"
           },
-          "$ref" : "#/definitions/RSAAARequestHeaderType"
+          "$ref": "#/definitions/RSAAARequestHeaderType"
         },
-        "paymentType" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "PaymentType"
+        "paymentType": {
+          "type": "string",
+          "xml": {
+            "name": "PaymentType"
           }
         },
-        "authorityType" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "AuthorityType"
+        "authorityType": {
+          "type": "string",
+          "xml": {
+            "name": "AuthorityType"
           }
         },
-        "taxType" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "TaxType"
+        "taxType": {
+          "type": "string",
+          "xml": {
+            "name": "TaxType"
           }
         },
-        "template" : {
-          "type" : "boolean",
-          "xml" : {
-            "name" : "Template"
+        "template": {
+          "type": "boolean",
+          "xml": {
+            "name": "Template"
           }
         },
-        "addendaInfo" : {
-          "xml" : {
-            "name" : "AddendaInfo"
+        "addendaInfo": {
+          "xml": {
+            "name": "AddendaInfo"
           },
-          "$ref" : "#/definitions/AddendaInfoType"
+          "$ref": "#/definitions/AddendaInfoType"
         },
-        "achaddendaGenerateRqVersion" : {
-          "type" : "string"
+        "achaddendaGenerateRqVersion": {
+          "type": "string"
         }
       }
     },
-    "ACHAddendaGenerateRsType" : {
-      "type" : "object",
-      "required" : [ "addenda", "baseServiceRsVersion", "requestUID", "responseStatus", "status" ],
-      "properties" : {
-        "requestUID" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "RequestUID"
+    "ACHAddendaGenerateRsType": {
+      "type": "object",
+      "required": [
+        "addenda",
+        "baseServiceRsVersion",
+        "requestUID",
+        "responseStatus",
+        "status"
+      ],
+      "properties": {
+        "requestUID": {
+          "type": "string",
+          "xml": {
+            "name": "RequestUID"
           },
-          "default" : "DummyRequestIDValue"
+          "default": "DummyRequestIDValue"
         },
-        "createdDate" : {
-          "type" : "string",
-          "format" : "date-time",
-          "xml" : {
-            "name" : "CreatedDate"
+        "createdDate": {
+          "type": "string",
+          "format": "date-time",
+          "xml": {
+            "name": "CreatedDate"
           }
         },
-        "status" : {
-          "xml" : {
-            "name" : "Status"
+        "status": {
+          "xml": {
+            "name": "Status"
           },
-          "$ref" : "#/definitions/MessageStatusInfoType"
+          "$ref": "#/definitions/MessageStatusInfoType"
         },
-        "statusChain" : {
-          "type" : "array",
-          "xml" : {
-            "name" : "StatusChain"
+        "statusChain": {
+          "type": "array",
+          "xml": {
+            "name": "StatusChain"
           },
-          "items" : {
-            "xml" : {
-              "name" : "StatusChain"
+          "items": {
+            "xml": {
+              "name": "StatusChain"
             },
-            "$ref" : "#/definitions/MessageStatusInfoType"
+            "$ref": "#/definitions/MessageStatusInfoType"
           }
         },
-        "baseServiceRsVersion" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "BaseServiceRsVersion"
+        "baseServiceRsVersion": {
+          "type": "string",
+          "xml": {
+            "name": "BaseServiceRsVersion"
           },
-          "default" : "5"
+          "default": "5"
         },
-        "securityContext" : {
-          "type" : "array",
-          "xml" : {
-            "name" : "SecurityContext"
+        "securityContext": {
+          "type": "array",
+          "xml": {
+            "name": "SecurityContext"
           },
-          "items" : {
-            "xml" : {
-              "name" : "SecurityContext"
+          "items": {
+            "xml": {
+              "name": "SecurityContext"
             },
-            "$ref" : "#/definitions/SecurityContextType"
+            "$ref": "#/definitions/SecurityContextType"
           }
         },
-        "traceIdent" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "TraceIdent"
+        "traceIdent": {
+          "type": "string",
+          "xml": {
+            "name": "TraceIdent"
           }
         },
-        "authReqId" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "AuthReqId"
+        "authReqId": {
+          "type": "string",
+          "xml": {
+            "name": "AuthReqId"
           }
         },
-        "uniqueIdent" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "UniqueIdent"
+        "uniqueIdent": {
+          "type": "string",
+          "xml": {
+            "name": "UniqueIdent"
           }
         },
-        "entityStatus" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "EntityStatus"
+        "entityStatus": {
+          "type": "string",
+          "xml": {
+            "name": "EntityStatus"
           }
         },
-        "responseStatus" : {
-          "xml" : {
-            "name" : "ResponseStatus"
+        "responseStatus": {
+          "xml": {
+            "name": "ResponseStatus"
           },
-          "$ref" : "#/definitions/CommonMessageStatusInfoType"
+          "$ref": "#/definitions/CommonMessageStatusInfoType"
         },
-        "responseStatusList" : {
-          "type" : "array",
-          "xml" : {
-            "name" : "ResponseStatusList"
+        "responseStatusList": {
+          "type": "array",
+          "xml": {
+            "name": "ResponseStatusList"
           },
-          "items" : {
-            "xml" : {
-              "name" : "ResponseStatusList"
+          "items": {
+            "xml": {
+              "name": "ResponseStatusList"
             },
-            "$ref" : "#/definitions/CommonMessageStatusInfoType"
+            "$ref": "#/definitions/CommonMessageStatusInfoType"
           }
         },
-        "addenda" : {
-          "type" : "array",
-          "xml" : {
-            "name" : "Addenda"
+        "addenda": {
+          "type": "array",
+          "xml": {
+            "name": "Addenda"
           },
-          "items" : {
-            "xml" : {
-              "name" : "Addenda"
+          "items": {
+            "xml": {
+              "name": "Addenda"
             },
-            "$ref" : "#/definitions/AddendaInfoType"
+            "$ref": "#/definitions/AddendaInfoType"
           }
         },
-        "totalAmount" : {
-          "xml" : {
-            "name" : "TotalAmount"
+        "totalAmount": {
+          "xml": {
+            "name": "TotalAmount"
           },
-          "$ref" : "#/definitions/CurrencyAndAmount"
+          "$ref": "#/definitions/CurrencyAndAmount"
         },
-        "bankId" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "BankId"
+        "bankId": {
+          "type": "string",
+          "xml": {
+            "name": "BankId"
           }
         },
-        "accountType" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "AccountType"
+        "accountType": {
+          "type": "string",
+          "xml": {
+            "name": "AccountType"
           }
         },
-        "accountNumber" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "AccountNumber"
+        "accountNumber": {
+          "type": "string",
+          "xml": {
+            "name": "AccountNumber"
           }
         },
-        "achaddendaGenerateRsVersion" : {
-          "type" : "string"
+        "achaddendaGenerateRsVersion": {
+          "type": "string"
         },
-        "mfarsHeader" : {
-          "$ref" : "#/definitions/MFARsHeaderType"
+        "mfarsHeader": {
+          "$ref": "#/definitions/MFARsHeaderType"
         }
       }
     },
-    "ACHAddendaParseRqType" : {
-      "type" : "object",
-      "required" : [ "addenda", "baseServiceRqVersion", "paymentType", "requestUID" ],
-      "properties" : {
-        "requestUID" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "RequestUID"
+    "ACHAddendaParseRqType": {
+      "type": "object",
+      "required": [
+        "addenda",
+        "baseServiceRqVersion",
+        "paymentType",
+        "requestUID"
+      ],
+      "properties": {
+        "requestUID": {
+          "type": "string",
+          "xml": {
+            "name": "RequestUID"
           },
-          "default" : "DummyRequestIDValue"
+          "default": "DummyRequestIDValue"
         },
-        "createdDate" : {
-          "type" : "string",
-          "format" : "date-time",
-          "xml" : {
-            "name" : "CreatedDate"
+        "createdDate": {
+          "type": "string",
+          "format": "date-time",
+          "xml": {
+            "name": "CreatedDate"
           }
         },
-        "header" : {
-          "xml" : {
-            "name" : "Header"
+        "header": {
+          "xml": {
+            "name": "Header"
           },
-          "$ref" : "#/definitions/MessageHeaderType"
+          "$ref": "#/definitions/MessageHeaderType"
         },
-        "baseServiceRqVersion" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "BaseServiceRqVersion"
+        "baseServiceRqVersion": {
+          "type": "string",
+          "xml": {
+            "name": "BaseServiceRqVersion"
           },
-          "default" : "5"
+          "default": "5"
         },
-        "securityContext" : {
-          "type" : "array",
-          "xml" : {
-            "name" : "SecurityContext"
+        "securityContext": {
+          "type": "array",
+          "xml": {
+            "name": "SecurityContext"
           },
-          "items" : {
-            "xml" : {
-              "name" : "SecurityContext"
+          "items": {
+            "xml": {
+              "name": "SecurityContext"
             },
-            "$ref" : "#/definitions/SecurityContextType"
+            "$ref": "#/definitions/SecurityContextType"
           }
         },
-        "traceIdent" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "TraceIdent"
+        "traceIdent": {
+          "type": "string",
+          "xml": {
+            "name": "TraceIdent"
           }
         },
-        "mfaHeader" : {
-          "xml" : {
-            "name" : "MfaHeader"
+        "mfaHeader": {
+          "xml": {
+            "name": "MfaHeader"
           },
-          "$ref" : "#/definitions/MFAHeaderType"
+          "$ref": "#/definitions/MFAHeaderType"
         },
-        "requestHeader" : {
-          "xml" : {
-            "name" : "RequestHeader"
+        "requestHeader": {
+          "xml": {
+            "name": "RequestHeader"
           },
-          "$ref" : "#/definitions/RSAAARequestHeaderType"
+          "$ref": "#/definitions/RSAAARequestHeaderType"
         },
-        "paymentType" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "PaymentType"
+        "paymentType": {
+          "type": "string",
+          "xml": {
+            "name": "PaymentType"
           }
         },
-        "authorityType" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "AuthorityType"
+        "authorityType": {
+          "type": "string",
+          "xml": {
+            "name": "AuthorityType"
           }
         },
-        "taxType" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "TaxType"
+        "taxType": {
+          "type": "string",
+          "xml": {
+            "name": "TaxType"
           }
         },
-        "addenda" : {
-          "type" : "array",
-          "xml" : {
-            "name" : "Addenda"
+        "addenda": {
+          "type": "array",
+          "xml": {
+            "name": "Addenda"
           },
-          "items" : {
-            "xml" : {
-              "name" : "Addenda"
+          "items": {
+            "xml": {
+              "name": "Addenda"
             },
-            "$ref" : "#/definitions/AddendaInfoType"
+            "$ref": "#/definitions/AddendaInfoType"
           }
         },
-        "totalAmount" : {
-          "xml" : {
-            "name" : "TotalAmount"
+        "totalAmount": {
+          "xml": {
+            "name": "TotalAmount"
           },
-          "$ref" : "#/definitions/CurrencyAndAmount"
+          "$ref": "#/definitions/CurrencyAndAmount"
         },
-        "template" : {
-          "type" : "boolean",
-          "xml" : {
-            "name" : "Template"
+        "template": {
+          "type": "boolean",
+          "xml": {
+            "name": "Template"
           }
         },
-        "achaddendaParseRqVersion" : {
-          "type" : "string"
+        "achaddendaParseRqVersion": {
+          "type": "string"
         }
       }
     },
-    "ACHAddendaParseRsType" : {
-      "type" : "object",
-      "required" : [ "baseServiceRsVersion", "parseData", "requestUID", "responseStatus", "status" ],
-      "properties" : {
-        "requestUID" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "RequestUID"
+    "ACHAddendaParseRsType": {
+      "type": "object",
+      "required": [
+        "baseServiceRsVersion",
+        "parseData",
+        "requestUID",
+        "responseStatus",
+        "status"
+      ],
+      "properties": {
+        "requestUID": {
+          "type": "string",
+          "xml": {
+            "name": "RequestUID"
           },
-          "default" : "DummyRequestIDValue"
+          "default": "DummyRequestIDValue"
         },
-        "createdDate" : {
-          "type" : "string",
-          "format" : "date-time",
-          "xml" : {
-            "name" : "CreatedDate"
+        "createdDate": {
+          "type": "string",
+          "format": "date-time",
+          "xml": {
+            "name": "CreatedDate"
           }
         },
-        "status" : {
-          "xml" : {
-            "name" : "Status"
+        "status": {
+          "xml": {
+            "name": "Status"
           },
-          "$ref" : "#/definitions/MessageStatusInfoType"
+          "$ref": "#/definitions/MessageStatusInfoType"
         },
-        "statusChain" : {
-          "type" : "array",
-          "xml" : {
-            "name" : "StatusChain"
+        "statusChain": {
+          "type": "array",
+          "xml": {
+            "name": "StatusChain"
           },
-          "items" : {
-            "xml" : {
-              "name" : "StatusChain"
+          "items": {
+            "xml": {
+              "name": "StatusChain"
             },
-            "$ref" : "#/definitions/MessageStatusInfoType"
+            "$ref": "#/definitions/MessageStatusInfoType"
           }
         },
-        "baseServiceRsVersion" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "BaseServiceRsVersion"
+        "baseServiceRsVersion": {
+          "type": "string",
+          "xml": {
+            "name": "BaseServiceRsVersion"
           },
-          "default" : "5"
+          "default": "5"
         },
-        "securityContext" : {
-          "type" : "array",
-          "xml" : {
-            "name" : "SecurityContext"
+        "securityContext": {
+          "type": "array",
+          "xml": {
+            "name": "SecurityContext"
           },
-          "items" : {
-            "xml" : {
-              "name" : "SecurityContext"
+          "items": {
+            "xml": {
+              "name": "SecurityContext"
             },
-            "$ref" : "#/definitions/SecurityContextType"
+            "$ref": "#/definitions/SecurityContextType"
           }
         },
-        "traceIdent" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "TraceIdent"
+        "traceIdent": {
+          "type": "string",
+          "xml": {
+            "name": "TraceIdent"
           }
         },
-        "authReqId" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "AuthReqId"
+        "authReqId": {
+          "type": "string",
+          "xml": {
+            "name": "AuthReqId"
           }
         },
-        "uniqueIdent" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "UniqueIdent"
+        "uniqueIdent": {
+          "type": "string",
+          "xml": {
+            "name": "UniqueIdent"
           }
         },
-        "entityStatus" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "EntityStatus"
+        "entityStatus": {
+          "type": "string",
+          "xml": {
+            "name": "EntityStatus"
           }
         },
-        "responseStatus" : {
-          "xml" : {
-            "name" : "ResponseStatus"
+        "responseStatus": {
+          "xml": {
+            "name": "ResponseStatus"
           },
-          "$ref" : "#/definitions/CommonMessageStatusInfoType"
+          "$ref": "#/definitions/CommonMessageStatusInfoType"
         },
-        "responseStatusList" : {
-          "type" : "array",
-          "xml" : {
-            "name" : "ResponseStatusList"
+        "responseStatusList": {
+          "type": "array",
+          "xml": {
+            "name": "ResponseStatusList"
           },
-          "items" : {
-            "xml" : {
-              "name" : "ResponseStatusList"
+          "items": {
+            "xml": {
+              "name": "ResponseStatusList"
             },
-            "$ref" : "#/definitions/CommonMessageStatusInfoType"
+            "$ref": "#/definitions/CommonMessageStatusInfoType"
           }
         },
-        "parseData" : {
-          "xml" : {
-            "name" : "ParseData"
+        "parseData": {
+          "xml": {
+            "name": "ParseData"
           },
-          "$ref" : "#/definitions/ParseAddendaRsDataType"
+          "$ref": "#/definitions/ParseAddendaRsDataType"
         },
-        "achaddendaParseRsVersion" : {
-          "type" : "string"
+        "achaddendaParseRsVersion": {
+          "type": "string"
         },
-        "mfarsHeader" : {
-          "$ref" : "#/definitions/MFARsHeaderType"
+        "mfarsHeader": {
+          "$ref": "#/definitions/MFARsHeaderType"
         }
       }
     },
-    "ACHAddendaRetrieveTypesRsType" : {
-      "type" : "object",
-      "required" : [ "baseServiceRsVersion", "getTypesData", "requestUID", "responseStatus", "status" ],
-      "properties" : {
-        "requestUID" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "RequestUID"
+    "ACHAddendaRetrieveTypesRsType": {
+      "type": "object",
+      "required": [
+        "baseServiceRsVersion",
+        "getTypesData",
+        "requestUID",
+        "responseStatus",
+        "status"
+      ],
+      "properties": {
+        "requestUID": {
+          "type": "string",
+          "xml": {
+            "name": "RequestUID"
           },
-          "default" : "DummyRequestIDValue"
+          "default": "DummyRequestIDValue"
         },
-        "createdDate" : {
-          "type" : "string",
-          "format" : "date-time",
-          "xml" : {
-            "name" : "CreatedDate"
+        "createdDate": {
+          "type": "string",
+          "format": "date-time",
+          "xml": {
+            "name": "CreatedDate"
           }
         },
-        "status" : {
-          "xml" : {
-            "name" : "Status"
+        "status": {
+          "xml": {
+            "name": "Status"
           },
-          "$ref" : "#/definitions/MessageStatusInfoType"
+          "$ref": "#/definitions/MessageStatusInfoType"
         },
-        "statusChain" : {
-          "type" : "array",
-          "xml" : {
-            "name" : "StatusChain"
+        "statusChain": {
+          "type": "array",
+          "xml": {
+            "name": "StatusChain"
           },
-          "items" : {
-            "xml" : {
-              "name" : "StatusChain"
+          "items": {
+            "xml": {
+              "name": "StatusChain"
             },
-            "$ref" : "#/definitions/MessageStatusInfoType"
+            "$ref": "#/definitions/MessageStatusInfoType"
           }
         },
-        "baseServiceRsVersion" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "BaseServiceRsVersion"
+        "baseServiceRsVersion": {
+          "type": "string",
+          "xml": {
+            "name": "BaseServiceRsVersion"
           },
-          "default" : "5"
+          "default": "5"
         },
-        "securityContext" : {
-          "type" : "array",
-          "xml" : {
-            "name" : "SecurityContext"
+        "securityContext": {
+          "type": "array",
+          "xml": {
+            "name": "SecurityContext"
           },
-          "items" : {
-            "xml" : {
-              "name" : "SecurityContext"
+          "items": {
+            "xml": {
+              "name": "SecurityContext"
             },
-            "$ref" : "#/definitions/SecurityContextType"
+            "$ref": "#/definitions/SecurityContextType"
           }
         },
-        "traceIdent" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "TraceIdent"
+        "traceIdent": {
+          "type": "string",
+          "xml": {
+            "name": "TraceIdent"
           }
         },
-        "authReqId" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "AuthReqId"
+        "authReqId": {
+          "type": "string",
+          "xml": {
+            "name": "AuthReqId"
           }
         },
-        "uniqueIdent" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "UniqueIdent"
+        "uniqueIdent": {
+          "type": "string",
+          "xml": {
+            "name": "UniqueIdent"
           }
         },
-        "entityStatus" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "EntityStatus"
+        "entityStatus": {
+          "type": "string",
+          "xml": {
+            "name": "EntityStatus"
           }
         },
-        "responseStatus" : {
-          "xml" : {
-            "name" : "ResponseStatus"
+        "responseStatus": {
+          "xml": {
+            "name": "ResponseStatus"
           },
-          "$ref" : "#/definitions/CommonMessageStatusInfoType"
+          "$ref": "#/definitions/CommonMessageStatusInfoType"
         },
-        "responseStatusList" : {
-          "type" : "array",
-          "xml" : {
-            "name" : "ResponseStatusList"
+        "responseStatusList": {
+          "type": "array",
+          "xml": {
+            "name": "ResponseStatusList"
           },
-          "items" : {
-            "xml" : {
-              "name" : "ResponseStatusList"
+          "items": {
+            "xml": {
+              "name": "ResponseStatusList"
             },
-            "$ref" : "#/definitions/CommonMessageStatusInfoType"
+            "$ref": "#/definitions/CommonMessageStatusInfoType"
           }
         },
-        "getTypesData" : {
-          "xml" : {
-            "name" : "GetTypesData"
+        "getTypesData": {
+          "xml": {
+            "name": "GetTypesData"
           },
-          "$ref" : "#/definitions/GetAddendaTypesRsDataType"
+          "$ref": "#/definitions/GetAddendaTypesRsDataType"
         },
-        "achaddendaGetTypesRsVersion" : {
-          "type" : "string"
+        "achaddendaGetTypesRsVersion": {
+          "type": "string"
         },
-        "mfarsHeader" : {
-          "$ref" : "#/definitions/MFARsHeaderType"
+        "mfarsHeader": {
+          "$ref": "#/definitions/MFARsHeaderType"
         }
       }
     },
-    "ACHAddendaValidateRqType" : {
-      "type" : "object",
-      "required" : [ "addendaInfo", "baseServiceRqVersion", "paymentType", "requestUID" ],
-      "properties" : {
-        "requestUID" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "RequestUID"
+    "ACHAddendaValidateRqType": {
+      "type": "object",
+      "required": [
+        "addendaInfo",
+        "baseServiceRqVersion",
+        "paymentType",
+        "requestUID"
+      ],
+      "properties": {
+        "requestUID": {
+          "type": "string",
+          "xml": {
+            "name": "RequestUID"
           },
-          "default" : "DummyRequestIDValue"
+          "default": "DummyRequestIDValue"
         },
-        "createdDate" : {
-          "type" : "string",
-          "format" : "date-time",
-          "xml" : {
-            "name" : "CreatedDate"
+        "createdDate": {
+          "type": "string",
+          "format": "date-time",
+          "xml": {
+            "name": "CreatedDate"
           }
         },
-        "header" : {
-          "xml" : {
-            "name" : "Header"
+        "header": {
+          "xml": {
+            "name": "Header"
           },
-          "$ref" : "#/definitions/MessageHeaderType"
+          "$ref": "#/definitions/MessageHeaderType"
         },
-        "baseServiceRqVersion" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "BaseServiceRqVersion"
+        "baseServiceRqVersion": {
+          "type": "string",
+          "xml": {
+            "name": "BaseServiceRqVersion"
           },
-          "default" : "5"
+          "default": "5"
         },
-        "securityContext" : {
-          "type" : "array",
-          "xml" : {
-            "name" : "SecurityContext"
+        "securityContext": {
+          "type": "array",
+          "xml": {
+            "name": "SecurityContext"
           },
-          "items" : {
-            "xml" : {
-              "name" : "SecurityContext"
+          "items": {
+            "xml": {
+              "name": "SecurityContext"
             },
-            "$ref" : "#/definitions/SecurityContextType"
+            "$ref": "#/definitions/SecurityContextType"
           }
         },
-        "traceIdent" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "TraceIdent"
+        "traceIdent": {
+          "type": "string",
+          "xml": {
+            "name": "TraceIdent"
           }
         },
-        "mfaHeader" : {
-          "xml" : {
-            "name" : "MfaHeader"
+        "mfaHeader": {
+          "xml": {
+            "name": "MfaHeader"
           },
-          "$ref" : "#/definitions/MFAHeaderType"
+          "$ref": "#/definitions/MFAHeaderType"
         },
-        "requestHeader" : {
-          "xml" : {
-            "name" : "RequestHeader"
+        "requestHeader": {
+          "xml": {
+            "name": "RequestHeader"
           },
-          "$ref" : "#/definitions/RSAAARequestHeaderType"
+          "$ref": "#/definitions/RSAAARequestHeaderType"
         },
-        "paymentType" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "PaymentType"
+        "paymentType": {
+          "type": "string",
+          "xml": {
+            "name": "PaymentType"
           }
         },
-        "authorityType" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "AuthorityType"
+        "authorityType": {
+          "type": "string",
+          "xml": {
+            "name": "AuthorityType"
           }
         },
-        "taxType" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "TaxType"
+        "taxType": {
+          "type": "string",
+          "xml": {
+            "name": "TaxType"
           }
         },
-        "template" : {
-          "type" : "boolean",
-          "xml" : {
-            "name" : "Template"
+        "template": {
+          "type": "boolean",
+          "xml": {
+            "name": "Template"
           }
         },
-        "addendaInfo" : {
-          "xml" : {
-            "name" : "AddendaInfo"
+        "addendaInfo": {
+          "xml": {
+            "name": "AddendaInfo"
           },
-          "$ref" : "#/definitions/AddendaInfoType"
+          "$ref": "#/definitions/AddendaInfoType"
         },
-        "achaddendaValidateRqVersion" : {
-          "type" : "string"
+        "achaddendaValidateRqVersion": {
+          "type": "string"
         }
       }
     },
-    "ACHAddendaValidateRsType" : {
-      "type" : "object",
-      "required" : [ "addenda", "baseServiceRsVersion", "requestUID", "responseStatus", "status" ],
-      "properties" : {
-        "requestUID" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "RequestUID"
+    "ACHAddendaValidateRsType": {
+      "type": "object",
+      "required": [
+        "addenda",
+        "baseServiceRsVersion",
+        "requestUID",
+        "responseStatus",
+        "status"
+      ],
+      "properties": {
+        "requestUID": {
+          "type": "string",
+          "xml": {
+            "name": "RequestUID"
           },
-          "default" : "DummyRequestIDValue"
+          "default": "DummyRequestIDValue"
         },
-        "createdDate" : {
-          "type" : "string",
-          "format" : "date-time",
-          "xml" : {
-            "name" : "CreatedDate"
+        "createdDate": {
+          "type": "string",
+          "format": "date-time",
+          "xml": {
+            "name": "CreatedDate"
           }
         },
-        "status" : {
-          "xml" : {
-            "name" : "Status"
+        "status": {
+          "xml": {
+            "name": "Status"
           },
-          "$ref" : "#/definitions/MessageStatusInfoType"
+          "$ref": "#/definitions/MessageStatusInfoType"
         },
-        "statusChain" : {
-          "type" : "array",
-          "xml" : {
-            "name" : "StatusChain"
+        "statusChain": {
+          "type": "array",
+          "xml": {
+            "name": "StatusChain"
           },
-          "items" : {
-            "xml" : {
-              "name" : "StatusChain"
+          "items": {
+            "xml": {
+              "name": "StatusChain"
             },
-            "$ref" : "#/definitions/MessageStatusInfoType"
+            "$ref": "#/definitions/MessageStatusInfoType"
           }
         },
-        "baseServiceRsVersion" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "BaseServiceRsVersion"
+        "baseServiceRsVersion": {
+          "type": "string",
+          "xml": {
+            "name": "BaseServiceRsVersion"
           },
-          "default" : "5"
+          "default": "5"
         },
-        "securityContext" : {
-          "type" : "array",
-          "xml" : {
-            "name" : "SecurityContext"
+        "securityContext": {
+          "type": "array",
+          "xml": {
+            "name": "SecurityContext"
           },
-          "items" : {
-            "xml" : {
-              "name" : "SecurityContext"
+          "items": {
+            "xml": {
+              "name": "SecurityContext"
             },
-            "$ref" : "#/definitions/SecurityContextType"
+            "$ref": "#/definitions/SecurityContextType"
           }
         },
-        "traceIdent" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "TraceIdent"
+        "traceIdent": {
+          "type": "string",
+          "xml": {
+            "name": "TraceIdent"
           }
         },
-        "authReqId" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "AuthReqId"
+        "authReqId": {
+          "type": "string",
+          "xml": {
+            "name": "AuthReqId"
           }
         },
-        "uniqueIdent" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "UniqueIdent"
+        "uniqueIdent": {
+          "type": "string",
+          "xml": {
+            "name": "UniqueIdent"
           }
         },
-        "entityStatus" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "EntityStatus"
+        "entityStatus": {
+          "type": "string",
+          "xml": {
+            "name": "EntityStatus"
           }
         },
-        "responseStatus" : {
-          "xml" : {
-            "name" : "ResponseStatus"
+        "responseStatus": {
+          "xml": {
+            "name": "ResponseStatus"
           },
-          "$ref" : "#/definitions/CommonMessageStatusInfoType"
+          "$ref": "#/definitions/CommonMessageStatusInfoType"
         },
-        "responseStatusList" : {
-          "type" : "array",
-          "xml" : {
-            "name" : "ResponseStatusList"
+        "responseStatusList": {
+          "type": "array",
+          "xml": {
+            "name": "ResponseStatusList"
           },
-          "items" : {
-            "xml" : {
-              "name" : "ResponseStatusList"
+          "items": {
+            "xml": {
+              "name": "ResponseStatusList"
             },
-            "$ref" : "#/definitions/CommonMessageStatusInfoType"
+            "$ref": "#/definitions/CommonMessageStatusInfoType"
           }
         },
-        "addenda" : {
-          "type" : "array",
-          "xml" : {
-            "name" : "Addenda"
+        "addenda": {
+          "type": "array",
+          "xml": {
+            "name": "Addenda"
           },
-          "items" : {
-            "type" : "string",
-            "xml" : {
-              "name" : "Addenda"
+          "items": {
+            "type": "string",
+            "xml": {
+              "name": "Addenda"
             }
           }
         },
-        "totalAmount" : {
-          "xml" : {
-            "name" : "TotalAmount"
+        "totalAmount": {
+          "xml": {
+            "name": "TotalAmount"
           },
-          "$ref" : "#/definitions/CurrencyAndAmount"
+          "$ref": "#/definitions/CurrencyAndAmount"
         },
-        "bankId" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "BankId"
+        "bankId": {
+          "type": "string",
+          "xml": {
+            "name": "BankId"
           }
         },
-        "accountType" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "AccountType"
+        "accountType": {
+          "type": "string",
+          "xml": {
+            "name": "AccountType"
           }
         },
-        "accountNumber" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "AccountNumber"
+        "accountNumber": {
+          "type": "string",
+          "xml": {
+            "name": "AccountNumber"
           }
         },
-        "achaddendaValidateRsVersion" : {
-          "type" : "string"
+        "achaddendaValidateRsVersion": {
+          "type": "string"
         },
-        "mfarsHeader" : {
-          "$ref" : "#/definitions/MFARsHeaderType"
+        "mfarsHeader": {
+          "$ref": "#/definitions/MFARsHeaderType"
         }
       }
     },
-    "ACHTaxAddendaRetrieveFieldsRsType" : {
-      "type" : "object",
-      "required" : [ "addendaFields", "baseServiceRsVersion", "requestUID", "status" ],
-      "properties" : {
-        "requestUID" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "RequestUID"
+    "ACHTaxAddendaRetrieveFieldsRsType": {
+      "type": "object",
+      "required": [
+        "addendaFields",
+        "baseServiceRsVersion",
+        "requestUID",
+        "status"
+      ],
+      "properties": {
+        "requestUID": {
+          "type": "string",
+          "xml": {
+            "name": "RequestUID"
           },
-          "default" : "DummyRequestIDValue"
+          "default": "DummyRequestIDValue"
         },
-        "createdDate" : {
-          "type" : "string",
-          "format" : "date-time",
-          "xml" : {
-            "name" : "CreatedDate"
+        "createdDate": {
+          "type": "string",
+          "format": "date-time",
+          "xml": {
+            "name": "CreatedDate"
           }
         },
-        "status" : {
-          "xml" : {
-            "name" : "Status"
+        "status": {
+          "xml": {
+            "name": "Status"
           },
-          "$ref" : "#/definitions/MessageStatusInfoType"
+          "$ref": "#/definitions/MessageStatusInfoType"
         },
-        "statusChain" : {
-          "type" : "array",
-          "xml" : {
-            "name" : "StatusChain"
+        "statusChain": {
+          "type": "array",
+          "xml": {
+            "name": "StatusChain"
           },
-          "items" : {
-            "xml" : {
-              "name" : "StatusChain"
+          "items": {
+            "xml": {
+              "name": "StatusChain"
             },
-            "$ref" : "#/definitions/MessageStatusInfoType"
+            "$ref": "#/definitions/MessageStatusInfoType"
           }
         },
-        "baseServiceRsVersion" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "BaseServiceRsVersion"
+        "baseServiceRsVersion": {
+          "type": "string",
+          "xml": {
+            "name": "BaseServiceRsVersion"
           },
-          "default" : "5"
+          "default": "5"
         },
-        "securityContext" : {
-          "type" : "array",
-          "xml" : {
-            "name" : "SecurityContext"
+        "securityContext": {
+          "type": "array",
+          "xml": {
+            "name": "SecurityContext"
           },
-          "items" : {
-            "xml" : {
-              "name" : "SecurityContext"
+          "items": {
+            "xml": {
+              "name": "SecurityContext"
             },
-            "$ref" : "#/definitions/SecurityContextType"
+            "$ref": "#/definitions/SecurityContextType"
           }
         },
-        "traceIdent" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "TraceIdent"
+        "traceIdent": {
+          "type": "string",
+          "xml": {
+            "name": "TraceIdent"
           }
         },
-        "authReqId" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "AuthReqId"
+        "authReqId": {
+          "type": "string",
+          "xml": {
+            "name": "AuthReqId"
           }
         },
-        "addendaFields" : {
-          "type" : "array",
-          "xml" : {
-            "name" : "AddendaFields"
+        "addendaFields": {
+          "type": "array",
+          "xml": {
+            "name": "AddendaFields"
           },
-          "items" : {
-            "xml" : {
-              "name" : "AddendaFields"
+          "items": {
+            "xml": {
+              "name": "AddendaFields"
             },
-            "$ref" : "#/definitions/TaxAddendaFieldsType"
+            "$ref": "#/definitions/TaxAddendaFieldsType"
           }
         },
-        "achtaxAddendaGetFieldsRsVersion" : {
-          "type" : "string"
+        "achtaxAddendaGetFieldsRsVersion": {
+          "type": "string"
         },
-        "mfarsHeader" : {
-          "$ref" : "#/definitions/MFARsHeaderType"
+        "mfarsHeader": {
+          "$ref": "#/definitions/MFARsHeaderType"
         }
       }
     },
-    "AccountIdentificationTypeType" : {
-      "type" : "object",
-      "properties" : {
-        "code" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "Code"
+    "AccountIdentificationTypeType": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "xml": {
+            "name": "Code"
           }
         },
-        "proprietary" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "Proprietary"
+        "proprietary": {
+          "type": "string",
+          "xml": {
+            "name": "Proprietary"
           }
         }
       }
     },
-    "AccountInfoType" : {
-      "type" : "object",
-      "required" : [ "accountIdent", "accountInfoVersion", "currency" ],
-      "properties" : {
-        "versionStampId" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "VersionStampId"
+    "AccountInfoType": {
+      "type": "object",
+      "required": [
+        "accountIdent",
+        "accountInfoVersion",
+        "currency"
+      ],
+      "properties": {
+        "versionStampId": {
+          "type": "string",
+          "xml": {
+            "name": "VersionStampId"
           }
         },
-        "financialInstitution" : {
-          "xml" : {
-            "name" : "FinancialInstitution"
+        "financialInstitution": {
+          "xml": {
+            "name": "FinancialInstitution"
           },
-          "$ref" : "#/definitions/PaymentFinancialInstitutionType"
+          "$ref": "#/definitions/PaymentFinancialInstitutionType"
         },
-        "accountIdent" : {
-          "xml" : {
-            "name" : "AccountIdent"
+        "accountIdent": {
+          "xml": {
+            "name": "AccountIdent"
           },
-          "$ref" : "#/definitions/PaymentAccountIdentificationType"
+          "$ref": "#/definitions/PaymentAccountIdentificationType"
         },
-        "accountName" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "AccountName"
+        "accountName": {
+          "type": "string",
+          "xml": {
+            "name": "AccountName"
           }
         },
-        "accountNickName" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "AccountNickName"
+        "accountNickName": {
+          "type": "string",
+          "xml": {
+            "name": "AccountNickName"
           }
         },
-        "accountType" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "AccountType"
+        "accountType": {
+          "type": "string",
+          "xml": {
+            "name": "AccountType"
           }
         },
-        "hostProductCode" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "HostProductCode"
+        "hostProductCode": {
+          "type": "string",
+          "xml": {
+            "name": "HostProductCode"
           }
         },
-        "product" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "Product"
+        "product": {
+          "type": "string",
+          "xml": {
+            "name": "Product"
           }
         },
-        "productType" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "ProductType"
+        "productType": {
+          "type": "string",
+          "xml": {
+            "name": "ProductType"
           }
         },
-        "currency" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "Currency"
+        "currency": {
+          "type": "string",
+          "xml": {
+            "name": "Currency"
           }
         },
-        "accountInfoVersion" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "AccountInfoVersion"
+        "accountInfoVersion": {
+          "type": "string",
+          "xml": {
+            "name": "AccountInfoVersion"
           },
-          "default" : "1"
+          "default": "1"
         }
       }
     },
-    "AccountOtherIdentificationType" : {
-      "type" : "object",
-      "required" : [ "accountOtherIdentificationVersion", "ident" ],
-      "properties" : {
-        "ident" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "Ident"
+    "AccountOtherIdentificationType": {
+      "type": "object",
+      "required": [
+        "accountOtherIdentificationVersion",
+        "ident"
+      ],
+      "properties": {
+        "ident": {
+          "type": "string",
+          "xml": {
+            "name": "Ident"
           }
         },
-        "issuer" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "Issuer"
+        "issuer": {
+          "type": "string",
+          "xml": {
+            "name": "Issuer"
           }
         },
-        "identType" : {
-          "xml" : {
-            "name" : "IdentType"
+        "identType": {
+          "xml": {
+            "name": "IdentType"
           },
-          "$ref" : "#/definitions/AccountIdentificationTypeType"
+          "$ref": "#/definitions/AccountIdentificationTypeType"
         },
-        "accountOtherIdentificationVersion" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "AccountOtherIdentificationVersion"
+        "accountOtherIdentificationVersion": {
+          "type": "string",
+          "xml": {
+            "name": "AccountOtherIdentificationVersion"
           },
-          "default" : "1"
+          "default": "1"
         }
       }
     },
-    "AdaptiveEnvInfoType" : {
-      "type" : "object",
-      "properties" : {
-        "flashToken" : {
-          "type" : "string"
+    "AdaptiveEnvInfoType": {
+      "type": "object",
+      "properties": {
+        "flashToken": {
+          "type": "string"
         },
-        "cookie" : {
-          "$ref" : "#/definitions/CookieType"
+        "cookie": {
+          "$ref": "#/definitions/CookieType"
         },
-        "ipAddress" : {
-          "type" : "string"
+        "ipAddress": {
+          "type": "string"
         },
-        "devicePrint" : {
-          "type" : "string"
+        "devicePrint": {
+          "type": "string"
         },
-        "userAgent" : {
-          "type" : "string"
+        "userAgent": {
+          "type": "string"
         },
-        "httpAccept" : {
-          "type" : "string"
+        "httpAccept": {
+          "type": "string"
         },
-        "httpAcceptLanguage" : {
-          "type" : "string"
+        "httpAcceptLanguage": {
+          "type": "string"
         },
-        "httpReferer" : {
-          "type" : "string"
+        "httpReferer": {
+          "type": "string"
         },
-        "httpAcceptEncoding" : {
-          "type" : "string"
+        "httpAcceptEncoding": {
+          "type": "string"
         },
-        "httpAcceptChars" : {
-          "type" : "string"
+        "httpAcceptChars": {
+          "type": "string"
         }
       }
     },
-    "AddendaInfoType" : {
-      "type" : "object",
-      "required" : [ "addenda", "addendaInfoVersion", "addendaType" ],
-      "properties" : {
-        "addendaType" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "AddendaType"
+    "AddendaInfoType": {
+      "type": "object",
+      "required": [
+        "addenda",
+        "addendaInfoVersion",
+        "addendaType"
+      ],
+      "properties": {
+        "addendaType": {
+          "type": "string",
+          "xml": {
+            "name": "AddendaType"
           }
         },
-        "addenda" : {
-          "type" : "array",
-          "xml" : {
-            "name" : "Addenda"
+        "addenda": {
+          "type": "array",
+          "xml": {
+            "name": "Addenda"
           },
-          "items" : {
-            "xml" : {
-              "name" : "Addenda"
+          "items": {
+            "xml": {
+              "name": "Addenda"
             },
-            "$ref" : "#/definitions/AddendaType"
+            "$ref": "#/definitions/AddendaType"
           }
         },
-        "addendaText" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "AddendaText"
+        "addendaText": {
+          "type": "string",
+          "xml": {
+            "name": "AddendaText"
           }
         },
-        "addendaInfoVersion" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "AddendaInfoVersion"
+        "addendaInfoVersion": {
+          "type": "string",
+          "xml": {
+            "name": "AddendaInfoVersion"
           },
-          "default" : "1"
+          "default": "1"
         }
       }
     },
-    "AddendaType" : {
-      "type" : "object",
-      "required" : [ "addendaVersion" ],
-      "properties" : {
-        "freeFormAddenda" : {
-          "xml" : {
-            "name" : "FreeFormAddenda"
+    "AddendaType": {
+      "type": "object",
+      "required": [
+        "addendaVersion"
+      ],
+      "properties": {
+        "freeFormAddenda": {
+          "xml": {
+            "name": "FreeFormAddenda"
           },
-          "$ref" : "#/definitions/FreeFormAddendaType"
+          "$ref": "#/definitions/FreeFormAddendaType"
         },
-        "childSupportAddenda" : {
-          "xml" : {
-            "name" : "ChildSupportAddenda"
+        "childSupportAddenda": {
+          "xml": {
+            "name": "ChildSupportAddenda"
           },
-          "$ref" : "#/definitions/ChildSupportAddendaType"
+          "$ref": "#/definitions/ChildSupportAddendaType"
         },
-        "taxAddenda" : {
-          "xml" : {
-            "name" : "TaxAddenda"
+        "taxAddenda": {
+          "xml": {
+            "name": "TaxAddenda"
           },
-          "$ref" : "#/definitions/TaxAddendaType"
+          "$ref": "#/definitions/TaxAddendaType"
         },
-        "addendaVersion" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "AddendaVersion"
+        "addendaVersion": {
+          "type": "string",
+          "xml": {
+            "name": "AddendaVersion"
           }
         },
-        "template" : {
-          "type" : "boolean"
+        "template": {
+          "type": "boolean"
         },
-        "ccdaddenda" : {
-          "$ref" : "#/definitions/CCDAddendaType"
+        "ccdaddenda": {
+          "$ref": "#/definitions/CCDAddendaType"
         },
-        "ctxaddenda" : {
-          "$ref" : "#/definitions/CTXAddendaType"
+        "ctxaddenda": {
+          "$ref": "#/definitions/CTXAddendaType"
         }
       }
     },
-    "AddendaTypeType" : {
-      "type" : "object",
-      "required" : [ "addendaTypeVersion", "taxTypeCode", "taxTypeName" ],
-      "properties" : {
-        "taxTypeName" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "TaxTypeName"
+    "AddendaTypeType": {
+      "type": "object",
+      "required": [
+        "addendaTypeVersion",
+        "taxTypeCode",
+        "taxTypeName"
+      ],
+      "properties": {
+        "taxTypeName": {
+          "type": "string",
+          "xml": {
+            "name": "TaxTypeName"
           }
         },
-        "taxTypeCode" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "TaxTypeCode"
+        "taxTypeCode": {
+          "type": "string",
+          "xml": {
+            "name": "TaxTypeCode"
           }
         },
-        "addendaTypeVersion" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "AddendaTypeVersion"
+        "addendaTypeVersion": {
+          "type": "string",
+          "xml": {
+            "name": "AddendaTypeVersion"
           },
-          "default" : "1"
+          "default": "1"
         }
       }
     },
-    "AdjustmentAmountDataType" : {
-      "type" : "object",
-      "properties" : {
-        "adjustmentAmount" : {
-          "xml" : {
-            "name" : "AdjustmentAmount"
+    "AdjustmentAmountDataType": {
+      "type": "object",
+      "properties": {
+        "adjustmentAmount": {
+          "xml": {
+            "name": "AdjustmentAmount"
           },
-          "$ref" : "#/definitions/CurrencyAndAmount"
+          "$ref": "#/definitions/CurrencyAndAmount"
         },
-        "adjustmentReasonCode" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "AdjustmentReasonCode"
+        "adjustmentReasonCode": {
+          "type": "string",
+          "xml": {
+            "name": "AdjustmentReasonCode"
           }
         },
-        "adjustmentDescription" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "AdjustmentDescription"
+        "adjustmentDescription": {
+          "type": "string",
+          "xml": {
+            "name": "AdjustmentDescription"
           }
         },
-        "adjustmentAmountDataVersion" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "AdjustmentAmountDataVersion"
+        "adjustmentAmountDataVersion": {
+          "type": "string",
+          "xml": {
+            "name": "AdjustmentAmountDataVersion"
           },
-          "default" : "1"
+          "default": "1"
         }
       }
     },
-    "AmountDataType" : {
-      "type" : "object",
-      "required" : [ "amountDataVersion" ],
-      "properties" : {
-        "invoiceAmountPaid" : {
-          "xml" : {
-            "name" : "InvoiceAmountPaid"
+    "AmountDataType": {
+      "type": "object",
+      "required": [
+        "amountDataVersion"
+      ],
+      "properties": {
+        "invoiceAmountPaid": {
+          "xml": {
+            "name": "InvoiceAmountPaid"
           },
-          "$ref" : "#/definitions/CurrencyAndAmount"
+          "$ref": "#/definitions/CurrencyAndAmount"
         },
-        "originalInvoiceAmount" : {
-          "xml" : {
-            "name" : "OriginalInvoiceAmount"
+        "originalInvoiceAmount": {
+          "xml": {
+            "name": "OriginalInvoiceAmount"
           },
-          "$ref" : "#/definitions/CurrencyAndAmount"
+          "$ref": "#/definitions/CurrencyAndAmount"
         },
-        "discountAmount" : {
-          "xml" : {
-            "name" : "DiscountAmount"
+        "discountAmount": {
+          "xml": {
+            "name": "DiscountAmount"
           },
-          "$ref" : "#/definitions/CurrencyAndAmount"
+          "$ref": "#/definitions/CurrencyAndAmount"
         },
-        "amountDataVersion" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "AmountDataVersion"
+        "amountDataVersion": {
+          "type": "string",
+          "xml": {
+            "name": "AmountDataVersion"
           },
-          "default" : "1"
+          "default": "1"
         }
       }
     },
-    "CCDAddendaType" : {
-      "type" : "object",
-      "properties" : {
-        "freeFormAddenda" : {
-          "xml" : {
-            "name" : "FreeFormAddenda"
+    "CCDAddendaType": {
+      "type": "object",
+      "properties": {
+        "freeFormAddenda": {
+          "xml": {
+            "name": "FreeFormAddenda"
           },
-          "$ref" : "#/definitions/FreeFormAddendaType"
+          "$ref": "#/definitions/FreeFormAddendaType"
         },
-        "noteAddenda" : {
-          "xml" : {
-            "name" : "NoteAddenda"
+        "noteAddenda": {
+          "xml": {
+            "name": "NoteAddenda"
           },
-          "$ref" : "#/definitions/NoteSpecialInstructionAddendaType"
+          "$ref": "#/definitions/NoteSpecialInstructionAddendaType"
         },
-        "remitanceAddenda" : {
-          "xml" : {
-            "name" : "RemitanceAddenda"
+        "remitanceAddenda": {
+          "xml": {
+            "name": "RemitanceAddenda"
           },
-          "$ref" : "#/definitions/RemittanceAdviceAddendaType"
+          "$ref": "#/definitions/RemittanceAdviceAddendaType"
         },
-        "referenceAddenda" : {
-          "xml" : {
-            "name" : "ReferenceAddenda"
+        "referenceAddenda": {
+          "xml": {
+            "name": "ReferenceAddenda"
           },
-          "$ref" : "#/definitions/ReferenceAddendaType"
+          "$ref": "#/definitions/ReferenceAddendaType"
         },
-        "traceAddenda" : {
-          "xml" : {
-            "name" : "TraceAddenda"
+        "traceAddenda": {
+          "xml": {
+            "name": "TraceAddenda"
           },
-          "$ref" : "#/definitions/TraceAddendaType"
+          "$ref": "#/definitions/TraceAddendaType"
         },
-        "entSbaAddenda" : {
-          "xml" : {
-            "name" : "EntSbaAddenda"
+        "entSbaAddenda": {
+          "xml": {
+            "name": "EntSbaAddenda"
           },
-          "$ref" : "#/definitions/EntSbaAddendaType"
+          "$ref": "#/definitions/EntSbaAddendaType"
         },
-        "ccdaddendaVersion" : {
-          "type" : "string"
+        "ccdaddendaVersion": {
+          "type": "string"
         }
       }
     },
-    "CTXAddendaType" : {
-      "type" : "object",
-      "properties" : {
-        "ctxQuickInvoiceEntry" : {
-          "type" : "boolean",
-          "default" : false
+    "CTXAddendaType": {
+      "type": "object",
+      "properties": {
+        "ctxQuickInvoiceEntry": {
+          "type": "boolean",
+          "default": false
         },
-        "traceNumber" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "TraceNumber"
+        "traceNumber": {
+          "type": "string",
+          "xml": {
+            "name": "TraceNumber"
           }
         },
-        "memo" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "Memo"
+        "memo": {
+          "type": "string",
+          "xml": {
+            "name": "Memo"
           }
         },
-        "additionalAttributes" : {
-          "type" : "array",
-          "xml" : {
-            "name" : "AdditionalAttributes"
+        "additionalAttributes": {
+          "type": "array",
+          "xml": {
+            "name": "AdditionalAttributes"
           },
-          "items" : {
-            "xml" : {
-              "name" : "AdditionalAttributes"
+          "items": {
+            "xml": {
+              "name": "AdditionalAttributes"
             },
-            "$ref" : "#/definitions/DynamicAttributeType"
+            "$ref": "#/definitions/DynamicAttributeType"
           }
         },
-        "ctxremittanceInfo" : {
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/CTXRemittanceInfoType"
+        "ctxremittanceInfo": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/CTXRemittanceInfoType"
           }
         },
-        "ctxaddendaVersion" : {
-          "type" : "string"
+        "ctxaddendaVersion": {
+          "type": "string"
         }
       }
     },
-    "CTXRemittanceInfoType" : {
-      "type" : "object",
-      "required" : [ "amountData", "reference" ],
-      "properties" : {
-        "reference" : {
-          "xml" : {
-            "name" : "Reference"
+    "CTXRemittanceInfoType": {
+      "type": "object",
+      "required": [
+        "amountData",
+        "reference"
+      ],
+      "properties": {
+        "reference": {
+          "xml": {
+            "name": "Reference"
           },
-          "$ref" : "#/definitions/ReferenceAddendaType"
+          "$ref": "#/definitions/ReferenceAddendaType"
         },
-        "dateQualifier" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "DateQualifier"
+        "dateQualifier": {
+          "type": "string",
+          "xml": {
+            "name": "DateQualifier"
           }
         },
-        "date" : {
-          "type" : "string",
-          "format" : "date-time",
-          "xml" : {
-            "name" : "Date"
+        "date": {
+          "type": "string",
+          "format": "date-time",
+          "xml": {
+            "name": "Date"
           }
         },
-        "amountData" : {
-          "xml" : {
-            "name" : "AmountData"
+        "amountData": {
+          "xml": {
+            "name": "AmountData"
           },
-          "$ref" : "#/definitions/AmountDataType"
+          "$ref": "#/definitions/AmountDataType"
         },
-        "additionalReference" : {
-          "xml" : {
-            "name" : "AdditionalReference"
+        "additionalReference": {
+          "xml": {
+            "name": "AdditionalReference"
           },
-          "$ref" : "#/definitions/ReferenceAddendaType"
+          "$ref": "#/definitions/ReferenceAddendaType"
         },
-        "adjustmentAmountData" : {
-          "xml" : {
-            "name" : "AdjustmentAmountData"
+        "adjustmentAmountData": {
+          "xml": {
+            "name": "AdjustmentAmountData"
           },
-          "$ref" : "#/definitions/AdjustmentAmountDataType"
+          "$ref": "#/definitions/AdjustmentAmountDataType"
         },
-        "additionalAttributes" : {
-          "type" : "array",
-          "xml" : {
-            "name" : "AdditionalAttributes"
+        "additionalAttributes": {
+          "type": "array",
+          "xml": {
+            "name": "AdditionalAttributes"
           },
-          "items" : {
-            "xml" : {
-              "name" : "AdditionalAttributes"
+          "items": {
+            "xml": {
+              "name": "AdditionalAttributes"
             },
-            "$ref" : "#/definitions/DynamicAttributeType"
+            "$ref": "#/definitions/DynamicAttributeType"
           }
         },
-        "ctxremittanceAdviceInfoVersion" : {
-          "type" : "string"
+        "ctxremittanceAdviceInfoVersion": {
+          "type": "string"
         }
       }
     },
-    "ChildSupportAddendaType" : {
-      "type" : "object",
-      "required" : [ "amount", "applicationIdentifierCode", "authorityCode", "caseIdentifier", "childSupportAddendaVersion", "nonCustodialParentSSN", "payDate" ],
-      "properties" : {
-        "authorityCode" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "AuthorityCode"
+    "ChildSupportAddendaType": {
+      "type": "object",
+      "required": [
+        "amount",
+        "applicationIdentifierCode",
+        "authorityCode",
+        "caseIdentifier",
+        "childSupportAddendaVersion",
+        "nonCustodialParentSSN",
+        "payDate"
+      ],
+      "properties": {
+        "authorityCode": {
+          "type": "string",
+          "xml": {
+            "name": "AuthorityCode"
           }
         },
-        "authorityAccount" : {
-          "xml" : {
-            "name" : "AuthorityAccount"
+        "authorityAccount": {
+          "xml": {
+            "name": "AuthorityAccount"
           },
-          "$ref" : "#/definitions/AccountInfoType"
+          "$ref": "#/definitions/AccountInfoType"
         },
-        "applicationIdentifierCode" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "ApplicationIdentifierCode"
+        "applicationIdentifierCode": {
+          "type": "string",
+          "xml": {
+            "name": "ApplicationIdentifierCode"
           }
         },
-        "caseIdentifier" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "CaseIdentifier"
+        "caseIdentifier": {
+          "type": "string",
+          "xml": {
+            "name": "CaseIdentifier"
           }
         },
-        "payDate" : {
-          "type" : "string",
-          "format" : "date-time",
-          "xml" : {
-            "name" : "PayDate"
+        "payDate": {
+          "type": "string",
+          "format": "date-time",
+          "xml": {
+            "name": "PayDate"
           }
         },
-        "amount" : {
-          "xml" : {
-            "name" : "Amount"
+        "amount": {
+          "xml": {
+            "name": "Amount"
           },
-          "$ref" : "#/definitions/CurrencyAndAmount"
+          "$ref": "#/definitions/CurrencyAndAmount"
         },
-        "nonCustodialParentFirstName" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "NonCustodialParentFirstName"
+        "nonCustodialParentFirstName": {
+          "type": "string",
+          "xml": {
+            "name": "NonCustodialParentFirstName"
           }
         },
-        "nonCustodialParentLastName" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "NonCustodialParentLastName"
+        "nonCustodialParentLastName": {
+          "type": "string",
+          "xml": {
+            "name": "NonCustodialParentLastName"
           }
         },
-        "nonCustodialParentSSN" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "NonCustodialParentSSN"
+        "nonCustodialParentSSN": {
+          "type": "string",
+          "xml": {
+            "name": "NonCustodialParentSSN"
           }
         },
-        "medicalSupportFlag" : {
-          "type" : "boolean",
-          "xml" : {
-            "name" : "MedicalSupportFlag"
+        "medicalSupportFlag": {
+          "type": "boolean",
+          "xml": {
+            "name": "MedicalSupportFlag"
           }
         },
-        "agencyCode" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "AgencyCode"
+        "agencyCode": {
+          "type": "string",
+          "xml": {
+            "name": "AgencyCode"
           }
         },
-        "employmentTerminationFlag" : {
-          "type" : "boolean",
-          "xml" : {
-            "name" : "EmploymentTerminationFlag"
+        "employmentTerminationFlag": {
+          "type": "boolean",
+          "xml": {
+            "name": "EmploymentTerminationFlag"
           }
         },
-        "additionalAttributes" : {
-          "type" : "array",
-          "xml" : {
-            "name" : "AdditionalAttributes"
+        "additionalAttributes": {
+          "type": "array",
+          "xml": {
+            "name": "AdditionalAttributes"
           },
-          "items" : {
-            "xml" : {
-              "name" : "AdditionalAttributes"
+          "items": {
+            "xml": {
+              "name": "AdditionalAttributes"
             },
-            "$ref" : "#/definitions/DynamicAttributeType"
+            "$ref": "#/definitions/DynamicAttributeType"
           }
         },
-        "childSupportAddendaVersion" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "ChildSupportAddendaVersion"
+        "childSupportAddendaVersion": {
+          "type": "string",
+          "xml": {
+            "name": "ChildSupportAddendaVersion"
           },
-          "default" : "1"
+          "default": "1"
         }
       }
     },
-    "CommonMessageStatusInfoType" : {
-      "type" : "object",
-      "required" : [ "code", "commonMessageStatusInfoVersion", "messageStatusInfoVersion" ],
-      "properties" : {
-        "code" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "Code"
+    "CommonMessageStatusInfoType": {
+      "type": "object",
+      "required": [
+        "code",
+        "commonMessageStatusInfoVersion",
+        "messageStatusInfoVersion"
+      ],
+      "properties": {
+        "code": {
+          "type": "string",
+          "xml": {
+            "name": "Code"
           }
         },
-        "severity" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "Severity"
+        "severity": {
+          "type": "string",
+          "xml": {
+            "name": "Severity"
           },
-          "enum" : [ "ERROR", "INFO", "WARNING" ]
+          "enum": [
+            "ERROR",
+            "INFO",
+            "WARNING"
+          ]
         },
-        "details" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "Details"
+        "details": {
+          "type": "string",
+          "xml": {
+            "name": "Details"
           }
         },
-        "statusDate" : {
-          "type" : "string",
-          "format" : "date-time",
-          "xml" : {
-            "name" : "StatusDate"
+        "statusDate": {
+          "type": "string",
+          "format": "date-time",
+          "xml": {
+            "name": "StatusDate"
           }
         },
-        "messageStatusInfoVersion" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "MessageStatusInfoVersion"
+        "messageStatusInfoVersion": {
+          "type": "string",
+          "xml": {
+            "name": "MessageStatusInfoVersion"
           },
-          "default" : "2"
+          "default": "2"
         },
-        "additionalAttributes" : {
-          "type" : "array",
-          "xml" : {
-            "name" : "AdditionalAttributes"
+        "additionalAttributes": {
+          "type": "array",
+          "xml": {
+            "name": "AdditionalAttributes"
           },
-          "items" : {
-            "xml" : {
-              "name" : "AdditionalAttributes"
+          "items": {
+            "xml": {
+              "name": "AdditionalAttributes"
             },
-            "$ref" : "#/definitions/DynamicAttributeType"
+            "$ref": "#/definitions/DynamicAttributeType"
           }
         },
-        "index" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "Index"
+        "index": {
+          "type": "string",
+          "xml": {
+            "name": "Index"
           }
         },
-        "commonMessageStatusInfoVersion" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "CommonMessageStatusInfoVersion"
+        "commonMessageStatusInfoVersion": {
+          "type": "string",
+          "xml": {
+            "name": "CommonMessageStatusInfoVersion"
           },
-          "default" : "1"
+          "default": "1"
         }
       }
     },
-    "CookieType" : {
-      "type" : "object",
-      "properties" : {
-        "name" : {
-          "type" : "string"
+    "CookieType": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
         },
-        "value" : {
-          "type" : "string"
+        "value": {
+          "type": "string"
         },
-        "domain" : {
-          "type" : "string"
+        "domain": {
+          "type": "string"
         },
-        "maxAge" : {
-          "type" : "integer",
-          "format" : "int32"
+        "maxAge": {
+          "type": "integer",
+          "format": "int32"
         },
-        "path" : {
-          "type" : "string"
+        "path": {
+          "type": "string"
         },
-        "secure" : {
-          "type" : "boolean"
+        "secure": {
+          "type": "boolean"
         },
-        "httpOnly" : {
-          "type" : "boolean"
+        "httpOnly": {
+          "type": "boolean"
         }
       }
     },
-    "CorrelationIdentifierType" : {
-      "type" : "object",
-      "properties" : {
-        "value" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "Value"
+    "CorrelationIdentifierType": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "string",
+          "xml": {
+            "name": "Value"
           }
         },
-        "issuer" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "Issuer"
-          }
-        }
-      }
-    },
-    "CurrencyAndAmount" : {
-      "type" : "object",
-      "required" : [ "amount", "currency" ],
-      "properties" : {
-        "currency" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "Currency"
-          }
-        },
-        "amount" : {
-          "type" : "number",
-          "xml" : {
-            "name" : "Amount"
+        "issuer": {
+          "type": "string",
+          "xml": {
+            "name": "Issuer"
           }
         }
       }
     },
-    "DynamicAttributeType" : {
-      "type" : "object",
-      "required" : [ "dynamicAttributeVersion", "extendedFieldName", "extendedFieldType", "extendedFieldValue" ],
-      "properties" : {
-        "extendedFieldName" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "ExtendedFieldName"
+    "CurrencyAndAmount": {
+      "type": "object",
+      "required": [
+        "amount",
+        "currency"
+      ],
+      "properties": {
+        "currency": {
+          "type": "string",
+          "xml": {
+            "name": "Currency"
           }
         },
-        "extendedFieldValue" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "ExtendedFieldValue"
+        "amount": {
+          "type": "number",
+          "xml": {
+            "name": "Amount"
+          }
+        }
+      }
+    },
+    "DynamicAttributeType": {
+      "type": "object",
+      "required": [
+        "dynamicAttributeVersion",
+        "extendedFieldName",
+        "extendedFieldType",
+        "extendedFieldValue"
+      ],
+      "properties": {
+        "extendedFieldName": {
+          "type": "string",
+          "xml": {
+            "name": "ExtendedFieldName"
           }
         },
-        "extendedFieldType" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "ExtendedFieldType"
+        "extendedFieldValue": {
+          "type": "string",
+          "xml": {
+            "name": "ExtendedFieldValue"
           }
         },
-        "dynamicAttributeVersion" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "DynamicAttributeVersion"
+        "extendedFieldType": {
+          "type": "string",
+          "xml": {
+            "name": "ExtendedFieldType"
+          }
+        },
+        "dynamicAttributeVersion": {
+          "type": "string",
+          "xml": {
+            "name": "DynamicAttributeVersion"
           },
-          "default" : "1"
+          "default": "1"
         }
       }
     },
-    "EntSbaAddendaType" : {
-      "type" : "object",
-      "required" : [ "amount", "partnerCode", "recipientId", "sbaLoanNumber" ],
-      "properties" : {
-        "partnerCode" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "PartnerCode"
+    "EntSbaAddendaType": {
+      "type": "object",
+      "required": [
+        "amount",
+        "partnerCode",
+        "recipientId",
+        "sbaLoanNumber"
+      ],
+      "properties": {
+        "partnerCode": {
+          "type": "string",
+          "xml": {
+            "name": "PartnerCode"
           }
         },
-        "sbaLoanNumber" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "SbaLoanNumber"
+        "sbaLoanNumber": {
+          "type": "string",
+          "xml": {
+            "name": "SbaLoanNumber"
           }
         },
-        "lenderLoanNumber" : {
-          "type" : "string"
+        "lenderLoanNumber": {
+          "type": "string"
         },
-        "amount" : {
-          "type" : "number"
+        "amount": {
+          "type": "number"
         },
-        "recipientId" : {
-          "type" : "string"
+        "recipientId": {
+          "type": "string"
         }
       }
     },
-    "FreeFormAddendaType" : {
-      "type" : "object",
-      "required" : [ "freeFormAddendaVersion" ],
-      "properties" : {
-        "addenda" : {
-          "type" : "array",
-          "xml" : {
-            "name" : "Addenda"
+    "FreeFormAddendaType": {
+      "type": "object",
+      "required": [
+        "freeFormAddendaVersion"
+      ],
+      "properties": {
+        "addenda": {
+          "type": "array",
+          "xml": {
+            "name": "Addenda"
           },
-          "items" : {
-            "type" : "string",
-            "xml" : {
-              "name" : "Addenda"
+          "items": {
+            "type": "string",
+            "xml": {
+              "name": "Addenda"
             }
           }
         },
-        "additionalAttributes" : {
-          "type" : "array",
-          "xml" : {
-            "name" : "AdditionalAttributes"
+        "additionalAttributes": {
+          "type": "array",
+          "xml": {
+            "name": "AdditionalAttributes"
           },
-          "items" : {
-            "xml" : {
-              "name" : "AdditionalAttributes"
+          "items": {
+            "xml": {
+              "name": "AdditionalAttributes"
             },
-            "$ref" : "#/definitions/DynamicAttributeType"
+            "$ref": "#/definitions/DynamicAttributeType"
           }
         },
-        "freeFormAddendaVersion" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "FreeFormAddendaVersion"
+        "freeFormAddendaVersion": {
+          "type": "string",
+          "xml": {
+            "name": "FreeFormAddendaVersion"
           },
-          "default" : "1"
+          "default": "1"
         }
       }
     },
-    "GenericAddressType" : {
-      "type" : "object",
-      "required" : [ "genericAddressVersion", "genericLocationVersion" ],
-      "properties" : {
-        "city" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "City"
+    "GenericAddressType": {
+      "type": "object",
+      "required": [
+        "genericAddressVersion",
+        "genericLocationVersion"
+      ],
+      "properties": {
+        "city": {
+          "type": "string",
+          "xml": {
+            "name": "City"
           }
         },
-        "stateProvince" : {
-          "xml" : {
-            "name" : "StateProvince"
+        "stateProvince": {
+          "xml": {
+            "name": "StateProvince"
           },
-          "$ref" : "#/definitions/StateCodeAndNameType"
+          "$ref": "#/definitions/StateCodeAndNameType"
         },
-        "countyDistrict" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "CountyDistrict"
+        "countyDistrict": {
+          "type": "string",
+          "xml": {
+            "name": "CountyDistrict"
           }
         },
-        "postalCode" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "PostalCode"
+        "postalCode": {
+          "type": "string",
+          "xml": {
+            "name": "PostalCode"
           }
         },
-        "countryCode" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "CountryCode"
+        "countryCode": {
+          "type": "string",
+          "xml": {
+            "name": "CountryCode"
           }
         },
-        "genericLocationVersion" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "GenericLocationVersion"
+        "genericLocationVersion": {
+          "type": "string",
+          "xml": {
+            "name": "GenericLocationVersion"
           },
-          "default" : "1"
+          "default": "1"
         },
-        "addressLine" : {
-          "type" : "array",
-          "xml" : {
-            "name" : "AddressLine"
+        "addressLine": {
+          "type": "array",
+          "xml": {
+            "name": "AddressLine"
           },
-          "items" : {
-            "type" : "string",
-            "xml" : {
-              "name" : "AddressLine"
+          "items": {
+            "type": "string",
+            "xml": {
+              "name": "AddressLine"
             }
           }
         },
-        "streetName" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "StreetName"
+        "streetName": {
+          "type": "string",
+          "xml": {
+            "name": "StreetName"
           }
         },
-        "addressType" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "AddressType"
+        "addressType": {
+          "type": "string",
+          "xml": {
+            "name": "AddressType"
           }
         },
-        "genericAddressVersion" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "GenericAddressVersion"
+        "genericAddressVersion": {
+          "type": "string",
+          "xml": {
+            "name": "GenericAddressVersion"
           },
-          "default" : "2"
+          "default": "2"
         },
-        "postOfficeBox" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "PostOfficeBox"
+        "postOfficeBox": {
+          "type": "string",
+          "xml": {
+            "name": "PostOfficeBox"
           }
         }
       }
     },
-    "GetAddendaTypesRsDataType" : {
-      "type" : "object",
-      "required" : [ "getAddendaTypesRsDataVersion" ],
-      "properties" : {
-        "additionalAttributes" : {
-          "xml" : {
-            "name" : "AdditionalAttributes"
+    "GetAddendaTypesRsDataType": {
+      "type": "object",
+      "required": [
+        "getAddendaTypesRsDataVersion"
+      ],
+      "properties": {
+        "additionalAttributes": {
+          "xml": {
+            "name": "AdditionalAttributes"
           },
-          "$ref" : "#/definitions/DynamicAttributeType"
+          "$ref": "#/definitions/DynamicAttributeType"
         },
-        "addendaTypes" : {
-          "type" : "array",
-          "xml" : {
-            "name" : "AddendaTypes"
+        "addendaTypes": {
+          "type": "array",
+          "xml": {
+            "name": "AddendaTypes"
           },
-          "items" : {
-            "xml" : {
-              "name" : "AddendaTypes"
+          "items": {
+            "xml": {
+              "name": "AddendaTypes"
             },
-            "$ref" : "#/definitions/AddendaTypeType"
+            "$ref": "#/definitions/AddendaTypeType"
           }
         },
-        "getAddendaTypesRsDataVersion" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "GetAddendaTypesRsDataVersion"
+        "getAddendaTypesRsDataVersion": {
+          "type": "string",
+          "xml": {
+            "name": "GetAddendaTypesRsDataVersion"
           },
-          "default" : "1"
+          "default": "1"
         }
       }
     },
-    "MFAHeaderType" : {
-      "type" : "object",
-      "required" : [ "authenticationType" ],
-      "properties" : {
-        "authenticationType" : {
-          "type" : "string"
+    "MFAHeaderType": {
+      "type": "object",
+      "required": [
+        "authenticationType"
+      ],
+      "properties": {
+        "authenticationType": {
+          "type": "string"
         },
-        "password" : {
-          "type" : "string"
+        "password": {
+          "type": "string"
         },
-        "passcode" : {
-          "type" : "string"
+        "passcode": {
+          "type": "string"
         },
-        "oldPin" : {
-          "type" : "string"
+        "oldPin": {
+          "type": "string"
         },
-        "newPin" : {
-          "type" : "string"
+        "newPin": {
+          "type": "string"
         },
-        "confirmNewPin" : {
-          "type" : "string"
+        "confirmNewPin": {
+          "type": "string"
         },
-        "activationCode" : {
-          "type" : "string"
+        "activationCode": {
+          "type": "string"
         },
-        "tokenNumber" : {
-          "type" : "string"
+        "tokenNumber": {
+          "type": "string"
         },
-        "state" : {
-          "type" : "integer",
-          "format" : "int32"
+        "state": {
+          "type": "integer",
+          "format": "int32"
         },
-        "mobileNumb" : {
-          "type" : "string"
+        "mobileNumb": {
+          "type": "string"
         },
-        "primaryNumb" : {
-          "type" : "string"
+        "primaryNumb": {
+          "type": "string"
         },
-        "secNumb" : {
-          "type" : "string"
+        "secNumb": {
+          "type": "string"
         },
-        "oobaChannel" : {
-          "type" : "string"
+        "oobaChannel": {
+          "type": "string"
         },
-        "emailAdd" : {
-          "type" : "string"
+        "emailAdd": {
+          "type": "string"
         },
-        "signingCount" : {
-          "type" : "integer",
-          "format" : "int32"
+        "signingCount": {
+          "type": "integer",
+          "format": "int32"
         },
-        "mfaheaderVersion" : {
-          "type" : "string"
+        "mfaheaderVersion": {
+          "type": "string"
         }
       }
     },
-    "MFARsHeaderType" : {
-      "type" : "object",
-      "required" : [ "authenticationType", "challenge", "providerId" ],
-      "properties" : {
-        "state" : {
-          "type" : "integer",
-          "format" : "int32"
+    "MFARsHeaderType": {
+      "type": "object",
+      "required": [
+        "authenticationType",
+        "challenge",
+        "providerId"
+      ],
+      "properties": {
+        "state": {
+          "type": "integer",
+          "format": "int32"
         },
-        "signingCount" : {
-          "type" : "integer",
-          "format" : "int32"
+        "signingCount": {
+          "type": "integer",
+          "format": "int32"
         },
-        "additionalAttributes" : {
-          "type" : "array",
-          "xml" : {
-            "name" : "AdditionalAttributes"
+        "additionalAttributes": {
+          "type": "array",
+          "xml": {
+            "name": "AdditionalAttributes"
           },
-          "items" : {
-            "xml" : {
-              "name" : "AdditionalAttributes"
+          "items": {
+            "xml": {
+              "name": "AdditionalAttributes"
             },
-            "$ref" : "#/definitions/DynamicAttributeType"
+            "$ref": "#/definitions/DynamicAttributeType"
           }
         },
-        "providerId" : {
-          "type" : "string",
-          "default" : "UNKNOWN"
+        "providerId": {
+          "type": "string",
+          "default": "UNKNOWN"
         },
-        "challenge" : {
-          "type" : "string",
-          "default" : "UNKNOWN"
+        "challenge": {
+          "type": "string",
+          "default": "UNKNOWN"
         },
-        "authenticationType" : {
-          "type" : "string",
-          "default" : "UNKNOWN"
+        "authenticationType": {
+          "type": "string",
+          "default": "UNKNOWN"
         },
-        "mfarsHeaderVersion" : {
-          "type" : "string"
+        "mfarsHeaderVersion": {
+          "type": "string"
         }
       }
     },
-    "MessageHeaderType" : {
-      "type" : "object",
-      "required" : [ "messageHeaderVersion" ],
-      "properties" : {
-        "initiatingSystem" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "InitiatingSystem"
+    "MessageHeaderType": {
+      "type": "object",
+      "required": [
+        "messageHeaderVersion"
+      ],
+      "properties": {
+        "initiatingSystem": {
+          "type": "string",
+          "xml": {
+            "name": "InitiatingSystem"
           }
         },
-        "destinationSystem" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "DestinationSystem"
+        "destinationSystem": {
+          "type": "string",
+          "xml": {
+            "name": "DestinationSystem"
           }
         },
-        "correlationIdent" : {
-          "xml" : {
-            "name" : "CorrelationIdent"
+        "correlationIdent": {
+          "xml": {
+            "name": "CorrelationIdent"
           },
-          "$ref" : "#/definitions/CorrelationIdentifierType"
+          "$ref": "#/definitions/CorrelationIdentifierType"
         },
-        "additionalAttributes" : {
-          "type" : "array",
-          "xml" : {
-            "name" : "AdditionalAttributes"
+        "additionalAttributes": {
+          "type": "array",
+          "xml": {
+            "name": "AdditionalAttributes"
           },
-          "items" : {
-            "xml" : {
-              "name" : "AdditionalAttributes"
+          "items": {
+            "xml": {
+              "name": "AdditionalAttributes"
             },
-            "$ref" : "#/definitions/DynamicAttributeType"
+            "$ref": "#/definitions/DynamicAttributeType"
           }
         },
-        "messageHeaderVersion" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "MessageHeaderVersion"
+        "messageHeaderVersion": {
+          "type": "string",
+          "xml": {
+            "name": "MessageHeaderVersion"
           },
-          "default" : "2"
+          "default": "2"
         },
-        "tenantIdent" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "TenantIdent"
+        "tenantIdent": {
+          "type": "string",
+          "xml": {
+            "name": "TenantIdent"
           }
         }
       }
     },
-    "MessageStatusInfoType" : {
-      "type" : "object",
-      "required" : [ "code", "messageStatusInfoVersion" ],
-      "properties" : {
-        "code" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "Code"
+    "MessageStatusInfoType": {
+      "type": "object",
+      "required": [
+        "code",
+        "messageStatusInfoVersion"
+      ],
+      "properties": {
+        "code": {
+          "type": "string",
+          "xml": {
+            "name": "Code"
           }
         },
-        "severity" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "Severity"
+        "severity": {
+          "type": "string",
+          "xml": {
+            "name": "Severity"
           },
-          "enum" : [ "ERROR", "INFO", "WARNING" ]
+          "enum": [
+            "ERROR",
+            "INFO",
+            "WARNING"
+          ]
         },
-        "details" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "Details"
+        "details": {
+          "type": "string",
+          "xml": {
+            "name": "Details"
           }
         },
-        "statusDate" : {
-          "type" : "string",
-          "format" : "date-time",
-          "xml" : {
-            "name" : "StatusDate"
+        "statusDate": {
+          "type": "string",
+          "format": "date-time",
+          "xml": {
+            "name": "StatusDate"
           }
         },
-        "messageStatusInfoVersion" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "MessageStatusInfoVersion"
+        "messageStatusInfoVersion": {
+          "type": "string",
+          "xml": {
+            "name": "MessageStatusInfoVersion"
           },
-          "default" : "2"
+          "default": "2"
         },
-        "additionalAttributes" : {
-          "type" : "array",
-          "xml" : {
-            "name" : "AdditionalAttributes"
+        "additionalAttributes": {
+          "type": "array",
+          "xml": {
+            "name": "AdditionalAttributes"
           },
-          "items" : {
-            "xml" : {
-              "name" : "AdditionalAttributes"
+          "items": {
+            "xml": {
+              "name": "AdditionalAttributes"
             },
-            "$ref" : "#/definitions/DynamicAttributeType"
+            "$ref": "#/definitions/DynamicAttributeType"
           }
         }
       }
     },
-    "NoteSpecialInstructionAddendaType" : {
-      "type" : "object",
-      "required" : [ "description", "noteReferenceCode", "noteSpecialInstructionAddendaVersion" ],
-      "properties" : {
-        "noteReferenceCode" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "NoteReferenceCode"
+    "NoteSpecialInstructionAddendaType": {
+      "type": "object",
+      "required": [
+        "description",
+        "noteReferenceCode",
+        "noteSpecialInstructionAddendaVersion"
+      ],
+      "properties": {
+        "noteReferenceCode": {
+          "type": "string",
+          "xml": {
+            "name": "NoteReferenceCode"
           }
         },
-        "description" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "Description"
+        "description": {
+          "type": "string",
+          "xml": {
+            "name": "Description"
           }
         },
-        "additionalAttributes" : {
-          "type" : "array",
-          "xml" : {
-            "name" : "AdditionalAttributes"
+        "additionalAttributes": {
+          "type": "array",
+          "xml": {
+            "name": "AdditionalAttributes"
           },
-          "items" : {
-            "xml" : {
-              "name" : "AdditionalAttributes"
+          "items": {
+            "xml": {
+              "name": "AdditionalAttributes"
             },
-            "$ref" : "#/definitions/DynamicAttributeType"
+            "$ref": "#/definitions/DynamicAttributeType"
           }
         },
-        "noteSpecialInstructionAddendaVersion" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "NoteSpecialInstructionAddendaVersion"
+        "noteSpecialInstructionAddendaVersion": {
+          "type": "string",
+          "xml": {
+            "name": "NoteSpecialInstructionAddendaVersion"
           },
-          "default" : "1"
+          "default": "1"
         }
       }
     },
-    "ParseAddendaRsDataType" : {
-      "type" : "object",
-      "required" : [ "addendaInfo", "parseAddendaRsDataVersion" ],
-      "properties" : {
-        "additionalAttributes" : {
-          "xml" : {
-            "name" : "AdditionalAttributes"
+    "ParseAddendaRsDataType": {
+      "type": "object",
+      "required": [
+        "addendaInfo",
+        "parseAddendaRsDataVersion"
+      ],
+      "properties": {
+        "additionalAttributes": {
+          "xml": {
+            "name": "AdditionalAttributes"
           },
-          "$ref" : "#/definitions/DynamicAttributeType"
+          "$ref": "#/definitions/DynamicAttributeType"
         },
-        "addendaInfo" : {
-          "xml" : {
-            "name" : "AddendaInfo"
+        "addendaInfo": {
+          "xml": {
+            "name": "AddendaInfo"
           },
-          "$ref" : "#/definitions/AddendaInfoType"
+          "$ref": "#/definitions/AddendaInfoType"
         },
-        "parseAddendaRsDataVersion" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "ParseAddendaRsDataVersion"
+        "parseAddendaRsDataVersion": {
+          "type": "string",
+          "xml": {
+            "name": "ParseAddendaRsDataVersion"
           },
-          "default" : "1"
+          "default": "1"
         }
       }
     },
-    "PaymentAccountIdentificationType" : {
-      "type" : "object",
-      "required" : [ "paymentAccountIdentificationVersion", "primaryIdent" ],
-      "properties" : {
-        "accountUid" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "AccountUid"
+    "PaymentAccountIdentificationType": {
+      "type": "object",
+      "required": [
+        "paymentAccountIdentificationVersion",
+        "primaryIdent"
+      ],
+      "properties": {
+        "accountUid": {
+          "type": "string",
+          "xml": {
+            "name": "AccountUid"
           }
         },
-        "primaryIdent" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "PrimaryIdent"
+        "primaryIdent": {
+          "type": "string",
+          "xml": {
+            "name": "PrimaryIdent"
           }
         },
-        "maskedAccountId" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "MaskedAccountId"
+        "maskedAccountId": {
+          "type": "string",
+          "xml": {
+            "name": "MaskedAccountId"
           }
         },
-        "otherIdents" : {
-          "type" : "array",
-          "xml" : {
-            "name" : "OtherIdents"
+        "otherIdents": {
+          "type": "array",
+          "xml": {
+            "name": "OtherIdents"
           },
-          "items" : {
-            "xml" : {
-              "name" : "OtherIdents"
+          "items": {
+            "xml": {
+              "name": "OtherIdents"
             },
-            "$ref" : "#/definitions/AccountOtherIdentificationType"
+            "$ref": "#/definitions/AccountOtherIdentificationType"
           }
         },
-        "paymentAccountIdentificationVersion" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "PaymentAccountIdentificationVersion"
+        "paymentAccountIdentificationVersion": {
+          "type": "string",
+          "xml": {
+            "name": "PaymentAccountIdentificationVersion"
           },
-          "default" : "1"
+          "default": "1"
         }
       }
     },
-    "PaymentFinancialInstitutionType" : {
-      "type" : "object",
-      "required" : [ "ident", "paymentFinancialInstitutionVersion" ],
-      "properties" : {
-        "ident" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "Ident"
+    "PaymentFinancialInstitutionType": {
+      "type": "object",
+      "required": [
+        "ident",
+        "paymentFinancialInstitutionVersion"
+      ],
+      "properties": {
+        "ident": {
+          "type": "string",
+          "xml": {
+            "name": "Ident"
           }
         },
-        "identType" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "IdentType"
+        "identType": {
+          "type": "string",
+          "xml": {
+            "name": "IdentType"
           }
         },
-        "name" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "Name"
+        "name": {
+          "type": "string",
+          "xml": {
+            "name": "Name"
           }
         },
-        "address" : {
-          "xml" : {
-            "name" : "Address"
+        "address": {
+          "xml": {
+            "name": "Address"
           },
-          "$ref" : "#/definitions/GenericAddressType"
+          "$ref": "#/definitions/GenericAddressType"
         },
-        "bankOption" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "BankOption"
+        "bankOption": {
+          "type": "string",
+          "xml": {
+            "name": "BankOption"
           }
         },
-        "standardBank" : {
-          "type" : "boolean",
-          "xml" : {
-            "name" : "StandardBank"
+        "standardBank": {
+          "type": "boolean",
+          "xml": {
+            "name": "StandardBank"
           },
-          "default" : true
+          "default": true
         },
-        "paymentFinancialInstitutionVersion" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "PaymentFinancialInstitutionVersion"
+        "paymentFinancialInstitutionVersion": {
+          "type": "string",
+          "xml": {
+            "name": "PaymentFinancialInstitutionVersion"
           },
-          "default" : "1"
+          "default": "1"
         }
       }
     },
-    "PhoneSetValueType" : {
-      "type" : "object",
-      "properties" : {
-        "phoneType" : {
-          "type" : "string"
+    "PhoneSetValueType": {
+      "type": "object",
+      "properties": {
+        "phoneType": {
+          "type": "string"
         },
-        "countryCode" : {
-          "type" : "string"
+        "countryCode": {
+          "type": "string"
         },
-        "areaCode" : {
-          "type" : "string"
+        "areaCode": {
+          "type": "string"
         },
-        "phoneNumber" : {
-          "type" : "string"
+        "phoneNumber": {
+          "type": "string"
         }
       }
     },
-    "QuestionAnswerValueType" : {
-      "type" : "object",
-      "properties" : {
-        "questionValue" : {
-          "$ref" : "#/definitions/QuestionValueType"
+    "QuestionAnswerValueType": {
+      "type": "object",
+      "properties": {
+        "questionValue": {
+          "$ref": "#/definitions/QuestionValueType"
         },
-        "answer" : {
-          "type" : "string"
+        "answer": {
+          "type": "string"
         }
       }
     },
-    "QuestionValueType" : {
-      "type" : "object",
-      "properties" : {
-        "id" : {
-          "type" : "string"
+    "QuestionValueType": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
         },
-        "text" : {
-          "type" : "string"
+        "text": {
+          "type": "string"
         },
-        "group" : {
-          "type" : "string"
+        "group": {
+          "type": "string"
         }
       }
     },
-    "RSAAARequestHeaderType" : {
-      "type" : "object",
-      "properties" : {
-        "userName" : {
-          "type" : "string"
+    "RSAAARequestHeaderType": {
+      "type": "object",
+      "properties": {
+        "userName": {
+          "type": "string"
         },
-        "groupName" : {
-          "type" : "string"
+        "groupName": {
+          "type": "string"
         },
-        "organizationName" : {
-          "type" : "string"
+        "organizationName": {
+          "type": "string"
         },
-        "language" : {
-          "type" : "string"
+        "language": {
+          "type": "string"
         },
-        "country" : {
-          "type" : "string"
+        "country": {
+          "type": "string"
         },
-        "sessionID" : {
-          "type" : "string"
+        "sessionID": {
+          "type": "string"
         },
-        "clientSessionID" : {
-          "type" : "string"
+        "clientSessionID": {
+          "type": "string"
         },
-        "transactionString" : {
-          "type" : "string"
+        "transactionString": {
+          "type": "string"
         },
-        "userStatus" : {
-          "type" : "string"
+        "userStatus": {
+          "type": "string"
         },
-        "actionCode" : {
-          "type" : "string"
+        "actionCode": {
+          "type": "string"
         },
-        "answerFailCount" : {
-          "type" : "integer",
-          "format" : "int32"
+        "answerFailCount": {
+          "type": "integer",
+          "format": "int32"
         },
-        "riskScore" : {
-          "type" : "integer",
-          "format" : "int32"
+        "riskScore": {
+          "type": "integer",
+          "format": "int32"
         },
-        "oobaToken" : {
-          "type" : "string"
+        "oobaToken": {
+          "type": "string"
         },
-        "challengeType" : {
-          "type" : "string"
+        "challengeType": {
+          "type": "string"
         },
-        "policy" : {
-          "type" : "string"
+        "policy": {
+          "type": "string"
         },
-        "credentialListFromRSA" : {
-          "type" : "array",
-          "items" : {
-            "type" : "string"
+        "credentialListFromRSA": {
+          "type": "array",
+          "items": {
+            "type": "string"
           }
         },
-        "aaEnvInfo" : {
-          "$ref" : "#/definitions/AdaptiveEnvInfoType"
+        "aaEnvInfo": {
+          "$ref": "#/definitions/AdaptiveEnvInfoType"
         },
-        "questionAnswerValue" : {
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/QuestionAnswerValueType"
+        "questionAnswerValue": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/QuestionAnswerValueType"
           }
         },
-        "phoneSetValue" : {
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/PhoneSetValueType"
+        "phoneSetValue": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PhoneSetValueType"
           }
         }
       }
     },
-    "ReferenceAddendaType" : {
-      "type" : "object",
-      "required" : [ "referenceNumber", "referenceNumberAddendaVersion", "referenceNumberQualifier" ],
-      "properties" : {
-        "referenceNumberQualifier" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "ReferenceNumberQualifier"
+    "ReferenceAddendaType": {
+      "type": "object",
+      "required": [
+        "referenceNumber",
+        "referenceNumberAddendaVersion",
+        "referenceNumberQualifier"
+      ],
+      "properties": {
+        "referenceNumberQualifier": {
+          "type": "string",
+          "xml": {
+            "name": "ReferenceNumberQualifier"
           }
         },
-        "referenceNumber" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "ReferenceNumber"
+        "referenceNumber": {
+          "type": "string",
+          "xml": {
+            "name": "ReferenceNumber"
           }
         },
-        "description" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "Description"
+        "description": {
+          "type": "string",
+          "xml": {
+            "name": "Description"
           }
         },
-        "additionalAttributes" : {
-          "type" : "array",
-          "xml" : {
-            "name" : "AdditionalAttributes"
+        "additionalAttributes": {
+          "type": "array",
+          "xml": {
+            "name": "AdditionalAttributes"
           },
-          "items" : {
-            "xml" : {
-              "name" : "AdditionalAttributes"
+          "items": {
+            "xml": {
+              "name": "AdditionalAttributes"
             },
-            "$ref" : "#/definitions/DynamicAttributeType"
+            "$ref": "#/definitions/DynamicAttributeType"
           }
         },
-        "referenceNumberAddendaVersion" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "ReferenceNumberAddendaVersion"
+        "referenceNumberAddendaVersion": {
+          "type": "string",
+          "xml": {
+            "name": "ReferenceNumberAddendaVersion"
           },
-          "default" : "1"
+          "default": "1"
         }
       }
     },
-    "RemittanceAdviceAddendaType" : {
-      "type" : "object",
-      "required" : [ "referenceAddenda", "remittanceAdviceAddendaVersion" ],
-      "properties" : {
-        "referenceAddenda" : {
-          "xml" : {
-            "name" : "ReferenceAddenda"
+    "RemittanceAdviceAddendaType": {
+      "type": "object",
+      "required": [
+        "referenceAddenda",
+        "remittanceAdviceAddendaVersion"
+      ],
+      "properties": {
+        "referenceAddenda": {
+          "xml": {
+            "name": "ReferenceAddenda"
           },
-          "$ref" : "#/definitions/ReferenceAddendaType"
+          "$ref": "#/definitions/ReferenceAddendaType"
         },
-        "amountData" : {
-          "xml" : {
-            "name" : "AmountData"
+        "amountData": {
+          "xml": {
+            "name": "AmountData"
           },
-          "$ref" : "#/definitions/AmountDataType"
+          "$ref": "#/definitions/AmountDataType"
         },
-        "adjustmentAmountData" : {
-          "xml" : {
-            "name" : "AdjustmentAmountData"
+        "adjustmentAmountData": {
+          "xml": {
+            "name": "AdjustmentAmountData"
           },
-          "$ref" : "#/definitions/AdjustmentAmountDataType"
+          "$ref": "#/definitions/AdjustmentAmountDataType"
         },
-        "additionalAttributes" : {
-          "xml" : {
-            "name" : "AdditionalAttributes"
+        "additionalAttributes": {
+          "xml": {
+            "name": "AdditionalAttributes"
           },
-          "$ref" : "#/definitions/DynamicAttributeType"
+          "$ref": "#/definitions/DynamicAttributeType"
         },
-        "remittanceAdviceAddendaVersion" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "RemittanceAdviceAddendaVersion"
+        "remittanceAdviceAddendaVersion": {
+          "type": "string",
+          "xml": {
+            "name": "RemittanceAdviceAddendaVersion"
           },
-          "default" : "1"
+          "default": "1"
         }
       }
     },
-    "SecurityContextType" : {
-      "type" : "object",
-      "required" : [ "format", "value" ],
-      "properties" : {
-        "format" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "Format"
+    "SecurityContextType": {
+      "type": "object",
+      "required": [
+        "format",
+        "value"
+      ],
+      "properties": {
+        "format": {
+          "type": "string",
+          "xml": {
+            "name": "Format"
           }
         },
-        "value" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "Value"
+        "value": {
+          "type": "string",
+          "xml": {
+            "name": "Value"
           }
         }
       }
     },
-    "SelectableOptions" : {
-      "type" : "object",
-      "required" : [ "name", "selectableOptionsVersion", "value" ],
-      "properties" : {
-        "name" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "Name"
+    "SelectableOptions": {
+      "type": "object",
+      "required": [
+        "name",
+        "selectableOptionsVersion",
+        "value"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "xml": {
+            "name": "Name"
           }
         },
-        "optional1" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "Optional1"
+        "optional1": {
+          "type": "string",
+          "xml": {
+            "name": "Optional1"
           }
         },
-        "optional2" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "Optional2"
+        "optional2": {
+          "type": "string",
+          "xml": {
+            "name": "Optional2"
           }
         },
-        "optional3" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "Optional3"
+        "optional3": {
+          "type": "string",
+          "xml": {
+            "name": "Optional3"
           }
         },
-        "optional4" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "Optional4"
+        "optional4": {
+          "type": "string",
+          "xml": {
+            "name": "Optional4"
           }
         },
-        "isSelected" : {
-          "type" : "boolean"
+        "isSelected": {
+          "type": "boolean"
         },
-        "value" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "Value"
+        "value": {
+          "type": "string",
+          "xml": {
+            "name": "Value"
           }
         },
-        "selectableOptionsVersion" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "SelectableOptionsVersion"
+        "selectableOptionsVersion": {
+          "type": "string",
+          "xml": {
+            "name": "SelectableOptionsVersion"
           },
-          "default" : "1"
+          "default": "1"
         }
       }
     },
-    "StateCodeAndNameType" : {
-      "type" : "object",
-      "required" : [ "stateCodeAndNameVersion" ],
-      "properties" : {
-        "code" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "Code"
+    "StateCodeAndNameType": {
+      "type": "object",
+      "required": [
+        "stateCodeAndNameVersion"
+      ],
+      "properties": {
+        "code": {
+          "type": "string",
+          "xml": {
+            "name": "Code"
           }
         },
-        "name" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "Name"
+        "name": {
+          "type": "string",
+          "xml": {
+            "name": "Name"
           }
         },
-        "stateCodeAndNameVersion" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "StateCodeAndNameVersion"
+        "stateCodeAndNameVersion": {
+          "type": "string",
+          "xml": {
+            "name": "StateCodeAndNameVersion"
           },
-          "default" : "1"
+          "default": "1"
         }
       }
     },
-    "TaxAddendaAttributeType" : {
-      "type" : "object",
-      "required" : [ "addendaFieldSequence", "addendaFieldValue", "taxAddendaAttributeVersion" ],
-      "properties" : {
-        "addendaFieldSequence" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "AddendaFieldSequence"
+    "TaxAddendaAttributeType": {
+      "type": "object",
+      "required": [
+        "addendaFieldSequence",
+        "addendaFieldValue",
+        "taxAddendaAttributeVersion"
+      ],
+      "properties": {
+        "addendaFieldSequence": {
+          "type": "string",
+          "xml": {
+            "name": "AddendaFieldSequence"
           }
         },
-        "addendaFieldValue" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "AddendaFieldValue"
+        "addendaFieldValue": {
+          "type": "string",
+          "xml": {
+            "name": "AddendaFieldValue"
           }
         },
-        "taxAddendaAttributeVersion" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "TaxAddendaAttributeVersion"
+        "taxAddendaAttributeVersion": {
+          "type": "string",
+          "xml": {
+            "name": "TaxAddendaAttributeVersion"
           },
-          "default" : "1"
+          "default": "1"
         }
       }
     },
-    "TaxAddendaFieldsType" : {
-      "type" : "object",
-      "required" : [ "taxAddendaFieldsVersion" ],
-      "properties" : {
-        "displayName" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "DisplayName"
+    "TaxAddendaFieldsType": {
+      "type": "object",
+      "required": [
+        "taxAddendaFieldsVersion"
+      ],
+      "properties": {
+        "displayName": {
+          "type": "string",
+          "xml": {
+            "name": "DisplayName"
           }
         },
-        "sequenceNumber" : {
-          "type" : "integer",
-          "format" : "int32",
-          "xml" : {
-            "name" : "SequenceNumber"
+        "sequenceNumber": {
+          "type": "integer",
+          "format": "int32",
+          "xml": {
+            "name": "SequenceNumber"
           }
         },
-        "dataType" : {
-          "type" : "integer",
-          "format" : "int32",
-          "xml" : {
-            "name" : "DataType"
+        "dataType": {
+          "type": "integer",
+          "format": "int32",
+          "xml": {
+            "name": "DataType"
           }
         },
-        "minLength" : {
-          "type" : "integer",
-          "format" : "int32",
-          "xml" : {
-            "name" : "MinLength"
+        "minLength": {
+          "type": "integer",
+          "format": "int32",
+          "xml": {
+            "name": "MinLength"
           }
         },
-        "maxLength" : {
-          "type" : "integer",
-          "format" : "int32",
-          "xml" : {
-            "name" : "MaxLength"
+        "maxLength": {
+          "type": "integer",
+          "format": "int32",
+          "xml": {
+            "name": "MaxLength"
           }
         },
-        "formatString" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "FormatString"
+        "formatString": {
+          "type": "string",
+          "xml": {
+            "name": "FormatString"
           }
         },
-        "isRequired" : {
-          "type" : "boolean",
-          "xml" : {
-            "name" : "IsRequired"
+        "isRequired": {
+          "type": "boolean",
+          "xml": {
+            "name": "IsRequired"
           },
-          "default" : false
+          "default": false
         },
-        "isVisible" : {
-          "type" : "boolean",
-          "xml" : {
-            "name" : "IsVisible"
+        "isVisible": {
+          "type": "boolean",
+          "xml": {
+            "name": "IsVisible"
           }
         },
-        "isEditable" : {
-          "type" : "boolean",
-          "xml" : {
-            "name" : "IsEditable"
+        "isEditable": {
+          "type": "boolean",
+          "xml": {
+            "name": "IsEditable"
           }
         },
-        "isSelectOption" : {
-          "type" : "boolean",
-          "xml" : {
-            "name" : "IsSelectOption"
+        "isSelectOption": {
+          "type": "boolean",
+          "xml": {
+            "name": "IsSelectOption"
           }
         },
-        "defaultValue" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "DefaultValue"
+        "defaultValue": {
+          "type": "string",
+          "xml": {
+            "name": "DefaultValue"
           }
         },
-        "allowedValues" : {
-          "type" : "array",
-          "xml" : {
-            "name" : "AllowedValues"
+        "allowedValues": {
+          "type": "array",
+          "xml": {
+            "name": "AllowedValues"
           },
-          "items" : {
-            "xml" : {
-              "name" : "AllowedValues"
+          "items": {
+            "xml": {
+              "name": "AllowedValues"
             },
-            "$ref" : "#/definitions/SelectableOptions"
+            "$ref": "#/definitions/SelectableOptions"
           }
         },
-        "taxAddendaFieldsVersion" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "TaxAddendaFieldsVersion"
+        "taxAddendaFieldsVersion": {
+          "type": "string",
+          "xml": {
+            "name": "TaxAddendaFieldsVersion"
           },
-          "default" : "1"
+          "default": "1"
         }
       }
     },
-    "TaxAddendaType" : {
-      "type" : "object",
-      "required" : [ "addendaFields", "taxAddendaVersion", "taxAuthorityCode", "taxTypeCode" ],
-      "properties" : {
-        "taxAuthorityCode" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "TaxAuthorityCode"
+    "TaxAddendaType": {
+      "type": "object",
+      "required": [
+        "addendaFields",
+        "taxAddendaVersion",
+        "taxAuthorityCode",
+        "taxTypeCode"
+      ],
+      "properties": {
+        "taxAuthorityCode": {
+          "type": "string",
+          "xml": {
+            "name": "TaxAuthorityCode"
           }
         },
-        "taxTypeCode" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "TaxTypeCode"
+        "taxTypeCode": {
+          "type": "string",
+          "xml": {
+            "name": "TaxTypeCode"
           }
         },
-        "addendaFields" : {
-          "type" : "array",
-          "xml" : {
-            "name" : "AddendaFields"
+        "addendaFields": {
+          "type": "array",
+          "xml": {
+            "name": "AddendaFields"
           },
-          "items" : {
-            "xml" : {
-              "name" : "AddendaFields"
+          "items": {
+            "xml": {
+              "name": "AddendaFields"
             },
-            "$ref" : "#/definitions/TaxAddendaAttributeType"
+            "$ref": "#/definitions/TaxAddendaAttributeType"
           }
         },
-        "taxAddendaVersion" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "TaxAddendaVersion"
+        "taxAddendaVersion": {
+          "type": "string",
+          "xml": {
+            "name": "TaxAddendaVersion"
           },
-          "default" : "1"
+          "default": "1"
         }
       }
     },
-    "TraceAddendaType" : {
-      "type" : "object",
-      "required" : [ "traceAddendaVersion", "traceNumber", "traceTypeCode" ],
-      "properties" : {
-        "traceTypeCode" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "TraceTypeCode"
+    "TraceAddendaType": {
+      "type": "object",
+      "required": [
+        "traceAddendaVersion",
+        "traceNumber",
+        "traceTypeCode"
+      ],
+      "properties": {
+        "traceTypeCode": {
+          "type": "string",
+          "xml": {
+            "name": "TraceTypeCode"
           }
         },
-        "traceNumber" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "TraceNumber"
+        "traceNumber": {
+          "type": "string",
+          "xml": {
+            "name": "TraceNumber"
           }
         },
-        "origCompanyIdent" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "OrigCompanyIdent"
+        "origCompanyIdent": {
+          "type": "string",
+          "xml": {
+            "name": "OrigCompanyIdent"
           }
         },
-        "referenceIdent" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "ReferenceIdent"
+        "referenceIdent": {
+          "type": "string",
+          "xml": {
+            "name": "ReferenceIdent"
           }
         },
-        "additionalAttributes" : {
-          "type" : "array",
-          "xml" : {
-            "name" : "AdditionalAttributes"
+        "additionalAttributes": {
+          "type": "array",
+          "xml": {
+            "name": "AdditionalAttributes"
           },
-          "items" : {
-            "xml" : {
-              "name" : "AdditionalAttributes"
+          "items": {
+            "xml": {
+              "name": "AdditionalAttributes"
             },
-            "$ref" : "#/definitions/DynamicAttributeType"
+            "$ref": "#/definitions/DynamicAttributeType"
           }
         },
-        "traceAddendaVersion" : {
-          "type" : "string",
-          "xml" : {
-            "name" : "TraceAddendaVersion"
+        "traceAddendaVersion": {
+          "type": "string",
+          "xml": {
+            "name": "TraceAddendaVersion"
           },
-          "default" : "1"
+          "default": "1"
         }
       }
     }
