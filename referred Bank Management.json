@@ -1,0 +1,1751 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "",
+    "version" : "6.9.0.0.0.0-SNAPSHOT",
+    "title" : "Universal Online Banker : PreferredBank Management Service",
+    "contact" : {
+      "name" : "ACI HELP 24",
+      "url" : "www.aciworldwide.com/help24",
+      "email" : ""
+    },
+    "license" : {
+      "name" : "ACI Worldwide License 1.1",
+      "url" : "http://aciworldwide.com/terms-of-use"
+    }
+  },
+  "host" : "modelbank.bankonline.com",
+  "basePath" : "/uob/api",
+  "tags" : [ {
+    "name" : "Preferred Bank Management"
+  }, {
+    "name" : "Standard Bank Management"
+  } ],
+  "schemes" : [ "https" ],
+  "paths" : {
+    "/banks/preferred" : {
+      "post" : {
+        "tags" : [ "Preferred Bank Management" ],
+        "summary" : "Create preferred Bank",
+        "description" : "",
+        "operationId" : "preferredBankCreate",
+        "consumes" : [ "application/json", "application/xml" ],
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "Bank for update",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/PreferredBankCreateRqType"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/PreferredBankCreateRsType"
+            }
+          }
+        }
+      }
+    },
+    "/banks/preferred/search" : {
+      "post" : {
+        "tags" : [ "Preferred Bank Management" ],
+        "summary" : "Retrieve preferred bank summary information",
+        "description" : "",
+        "operationId" : "preferredBankSummaryInquiry",
+        "consumes" : [ "application/json", "application/xml" ],
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "Criteria for filtering list",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/BanksParamsRequest"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/BanksResponse"
+            }
+          }
+        }
+      }
+    },
+    "/banks/preferred/{bankId}/type/{bankIdType}" : {
+      "get" : {
+        "tags" : [ "Preferred Bank Management" ],
+        "summary" : "Retrieve preferred bank information based on given Id",
+        "description" : "",
+        "operationId" : "preferredBankDetailInquiry",
+        "consumes" : [ "application/json", "application/xml" ],
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "name" : "bankId",
+          "in" : "path",
+          "description" : "Bank ID",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "bankIdType",
+          "in" : "path",
+          "description" : "Bank ID Type",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/BankDetailInquiryRsType"
+            }
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "Preferred Bank Management" ],
+        "summary" : "Update preferred Bank",
+        "description" : "",
+        "operationId" : "preferredBankUpdate",
+        "consumes" : [ "application/json", "application/xml" ],
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "Bank with new data for update",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/PreferredBankUpdateRqType"
+          }
+        }, {
+          "name" : "bankId",
+          "in" : "path",
+          "description" : "Existed bank id for update",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "bankIdType",
+          "in" : "path",
+          "description" : "Existed Bank ID Type",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/BaseServiceRsType"
+            }
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "Preferred Bank Management" ],
+        "summary" : "Delete preferred Bank",
+        "description" : "",
+        "operationId" : "preferredBankDelete",
+        "consumes" : [ "application/json", "application/xml" ],
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "name" : "bankId",
+          "in" : "path",
+          "description" : "Existed bank id for delete",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "bankIdType",
+          "in" : "path",
+          "description" : "Existed Bank ID Type for delete",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/BaseServiceRsType"
+            }
+          }
+        }
+      }
+    },
+    "/banks/standard/search" : {
+      "post" : {
+        "tags" : [ "Standard Bank Management" ],
+        "summary" : "Standard bank Summary Inquiry",
+        "description" : "",
+        "operationId" : "standardBankSummaryInquiry",
+        "consumes" : [ "application/json", "application/xml" ],
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "description" : "Criteria for filtering list",
+          "required" : true,
+          "schema" : {
+            "$ref" : "#/definitions/BanksParamsRequest"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/BanksResponse"
+            }
+          }
+        }
+      }
+    },
+    "/banks/standard/types" : {
+      "get" : {
+        "tags" : [ "Standard Bank Management" ],
+        "summary" : "Retrieve list of existed Bank ID Types",
+        "description" : "",
+        "operationId" : "bankIdTypesSummaryInquiry",
+        "consumes" : [ "application/json", "application/xml" ],
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "name" : "typeCode",
+          "in" : "query",
+          "description" : "Type Code",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "bankTypeCode",
+          "in" : "query",
+          "description" : "Bank Type Code",
+          "required" : true,
+          "type" : "string",
+          "enum" : [ "PERS_BNK", "BENE_BNK", "RECB_BNK", "INTR_BNK", "BKWP_BNK", "ACHP_BNK", "FRNP_BNK" ]
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/BankIdTypesResponse"
+            }
+          }
+        }
+      }
+    },
+    "/banks/standard/{bankId}/types/{bankIdType}" : {
+      "get" : {
+        "tags" : [ "Standard Bank Management" ],
+        "summary" : "Retrieve standard bank information based on given ID",
+        "description" : "",
+        "operationId" : "standardBankDetailInquiry",
+        "consumes" : [ "application/json", "application/xml" ],
+        "produces" : [ "application/json", "application/xml" ],
+        "parameters" : [ {
+          "name" : "bankId",
+          "in" : "path",
+          "description" : "Bank ID",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "bankIdType",
+          "in" : "path",
+          "description" : "Bank ID Type",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation",
+            "schema" : {
+              "$ref" : "#/definitions/BankResponse"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "AdaptiveEnvInfoType" : {
+      "type" : "object",
+      "properties" : {
+        "flashToken" : {
+          "type" : "string"
+        },
+        "cookie" : {
+          "$ref" : "#/definitions/CookieType"
+        },
+        "ipAddress" : {
+          "type" : "string"
+        },
+        "devicePrint" : {
+          "type" : "string"
+        },
+        "userAgent" : {
+          "type" : "string"
+        },
+        "httpAccept" : {
+          "type" : "string"
+        },
+        "httpAcceptLanguage" : {
+          "type" : "string"
+        },
+        "httpReferer" : {
+          "type" : "string"
+        },
+        "httpAcceptEncoding" : {
+          "type" : "string"
+        },
+        "httpAcceptChars" : {
+          "type" : "string"
+        }
+      }
+    },
+    "BankCriteria" : {
+      "type" : "object",
+      "required" : [ "bankCriteriaVersion", "bankTypeCode" ],
+      "properties" : {
+        "bankName" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "BankName"
+          }
+        },
+        "bankIDType" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "BankIDType"
+          }
+        },
+        "bankIDTypes" : {
+          "type" : "array",
+          "xml" : {
+            "name" : "BankIDTypes"
+          },
+          "items" : {
+            "type" : "string",
+            "xml" : {
+              "name" : "BankIDTypes"
+            }
+          }
+        },
+        "bankID" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "BankID"
+          }
+        },
+        "bankTypeCode" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "BankTypeCode"
+          },
+          "enum" : [ "PERS_BNK", "BENE_BNK", "RECB_BNK", "INTR_BNK", "BKWP_BNK", "ACHP_BNK", "FRNP_BNK" ]
+        },
+        "city" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "City"
+          }
+        },
+        "state" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "State"
+          }
+        },
+        "countryCode" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "CountryCode"
+          }
+        },
+        "countryDescription" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "CountryDescription"
+          }
+        },
+        "typeCode" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "TypeCode"
+          }
+        },
+        "subTypeCode" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "SubTypeCode"
+          }
+        },
+        "currency" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Currency"
+          }
+        },
+        "additionalAttributes" : {
+          "xml" : {
+            "name" : "AdditionalAttributes"
+          },
+          "$ref" : "#/definitions/DynamicAttributeType"
+        },
+        "bankCriteriaVersion" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "BankCriteriaVersion"
+          },
+          "default" : "1"
+        }
+      }
+    },
+    "BankDetailInquiryRsType" : {
+      "type" : "object",
+      "required" : [ "bankDetailInquiryRsVersion", "baseServiceRsVersion", "requestUID", "status" ],
+      "properties" : {
+        "requestUID" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "RequestUID"
+          },
+          "default" : "DummyRequestIDValue"
+        },
+        "createdDate" : {
+          "type" : "string",
+          "format" : "date-time",
+          "xml" : {
+            "name" : "CreatedDate"
+          }
+        },
+        "status" : {
+          "xml" : {
+            "name" : "Status"
+          },
+          "$ref" : "#/definitions/MessageStatusInfoType"
+        },
+        "statusChain" : {
+          "type" : "array",
+          "xml" : {
+            "name" : "StatusChain"
+          },
+          "items" : {
+            "xml" : {
+              "name" : "StatusChain"
+            },
+            "$ref" : "#/definitions/MessageStatusInfoType"
+          }
+        },
+        "baseServiceRsVersion" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "BaseServiceRsVersion"
+          },
+          "default" : "5"
+        },
+        "securityContext" : {
+          "type" : "array",
+          "xml" : {
+            "name" : "SecurityContext"
+          },
+          "items" : {
+            "xml" : {
+              "name" : "SecurityContext"
+            },
+            "$ref" : "#/definitions/SecurityContextType"
+          }
+        },
+        "traceIdent" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "TraceIdent"
+          }
+        },
+        "authReqId" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "AuthReqId"
+          }
+        },
+        "bank" : {
+          "xml" : {
+            "name" : "Bank"
+          },
+          "$ref" : "#/definitions/BankDetailType"
+        },
+        "bankDetailInquiryRsVersion" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "BankDetailInquiryRsVersion"
+          },
+          "default" : "1"
+        },
+        "mfarsHeader" : {
+          "$ref" : "#/definitions/MFARsHeaderType"
+        }
+      }
+    },
+    "BankDetailType" : {
+      "type" : "object",
+      "required" : [ "bankDetailTypeVersion" ],
+      "properties" : {
+        "versionStampId" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "VersionStampId"
+          }
+        },
+        "name" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Name"
+          }
+        },
+        "bankID" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "BankID"
+          }
+        },
+        "country" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Country"
+          }
+        },
+        "countryCode" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "CountryCode"
+          }
+        },
+        "address" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Address"
+          }
+        },
+        "addressLine" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "AddressLine"
+          }
+        },
+        "city" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "City"
+          }
+        },
+        "state" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "State"
+          }
+        },
+        "stateCode" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "StateCode"
+          }
+        },
+        "zipCode" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "ZipCode"
+          }
+        },
+        "bankDetailTypeVersion" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "BankDetailTypeVersion"
+          },
+          "default" : "1"
+        },
+        "idtype" : {
+          "type" : "string"
+        },
+        "idtypeName" : {
+          "type" : "string"
+        }
+      }
+    },
+    "BankIdTypeType" : {
+      "type" : "object",
+      "required" : [ "bankIdTypeReferenceTypeVersion", "code", "msgCode", "translation" ],
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Code"
+          }
+        },
+        "msgCode" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "MsgCode"
+          }
+        },
+        "translation" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Translation"
+          }
+        },
+        "bankIdTypeReferenceTypeVersion" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "BankIdTypeReferenceTypeVersion"
+          },
+          "default" : "1"
+        }
+      }
+    },
+    "BankIdTypesResponse" : {
+      "type" : "object",
+      "required" : [ "bankIdTypesSummaryInquiryRsVersion", "baseServiceRsVersion", "requestUID", "status" ],
+      "properties" : {
+        "requestUID" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "RequestUID"
+          },
+          "default" : "DummyRequestIDValue"
+        },
+        "createdDate" : {
+          "type" : "string",
+          "format" : "date-time",
+          "xml" : {
+            "name" : "CreatedDate"
+          }
+        },
+        "status" : {
+          "xml" : {
+            "name" : "Status"
+          },
+          "$ref" : "#/definitions/MessageStatusInfoType"
+        },
+        "statusChain" : {
+          "type" : "array",
+          "xml" : {
+            "name" : "StatusChain"
+          },
+          "items" : {
+            "xml" : {
+              "name" : "StatusChain"
+            },
+            "$ref" : "#/definitions/MessageStatusInfoType"
+          }
+        },
+        "baseServiceRsVersion" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "BaseServiceRsVersion"
+          },
+          "default" : "5"
+        },
+        "securityContext" : {
+          "type" : "array",
+          "xml" : {
+            "name" : "SecurityContext"
+          },
+          "items" : {
+            "xml" : {
+              "name" : "SecurityContext"
+            },
+            "$ref" : "#/definitions/SecurityContextType"
+          }
+        },
+        "traceIdent" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "TraceIdent"
+          }
+        },
+        "authReqId" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "AuthReqId"
+          }
+        },
+        "bankIdTypes" : {
+          "type" : "array",
+          "xml" : {
+            "name" : "BankIdTypes"
+          },
+          "items" : {
+            "xml" : {
+              "name" : "BankIdTypes"
+            },
+            "$ref" : "#/definitions/BankIdTypeType"
+          }
+        },
+        "bankIdTypesSummaryInquiryRsVersion" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "BankIdTypesSummaryInquiryRsVersion"
+          },
+          "default" : "1"
+        },
+        "mfarsHeader" : {
+          "$ref" : "#/definitions/MFARsHeaderType"
+        }
+      }
+    },
+    "BankResponse" : {
+      "type" : "object",
+      "required" : [ "bankDetailInquiryRsVersion", "baseServiceRsVersion", "requestUID", "status" ],
+      "properties" : {
+        "requestUID" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "RequestUID"
+          },
+          "default" : "DummyRequestIDValue"
+        },
+        "createdDate" : {
+          "type" : "string",
+          "format" : "date-time",
+          "xml" : {
+            "name" : "CreatedDate"
+          }
+        },
+        "status" : {
+          "xml" : {
+            "name" : "Status"
+          },
+          "$ref" : "#/definitions/MessageStatusInfoType"
+        },
+        "statusChain" : {
+          "type" : "array",
+          "xml" : {
+            "name" : "StatusChain"
+          },
+          "items" : {
+            "xml" : {
+              "name" : "StatusChain"
+            },
+            "$ref" : "#/definitions/MessageStatusInfoType"
+          }
+        },
+        "baseServiceRsVersion" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "BaseServiceRsVersion"
+          },
+          "default" : "5"
+        },
+        "securityContext" : {
+          "type" : "array",
+          "xml" : {
+            "name" : "SecurityContext"
+          },
+          "items" : {
+            "xml" : {
+              "name" : "SecurityContext"
+            },
+            "$ref" : "#/definitions/SecurityContextType"
+          }
+        },
+        "traceIdent" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "TraceIdent"
+          }
+        },
+        "authReqId" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "AuthReqId"
+          }
+        },
+        "bank" : {
+          "xml" : {
+            "name" : "Bank"
+          },
+          "$ref" : "#/definitions/BankDetailType"
+        },
+        "bankDetailInquiryRsVersion" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "BankDetailInquiryRsVersion"
+          },
+          "default" : "1"
+        },
+        "mfarsHeader" : {
+          "$ref" : "#/definitions/MFARsHeaderType"
+        }
+      }
+    },
+    "BanksParamsRequest" : {
+      "type" : "object",
+      "required" : [ "bankSummaryInquiryRqVersion", "baseServiceRqVersion", "requestUID" ],
+      "properties" : {
+        "requestUID" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "RequestUID"
+          },
+          "default" : "DummyRequestIDValue"
+        },
+        "createdDate" : {
+          "type" : "string",
+          "format" : "date-time",
+          "xml" : {
+            "name" : "CreatedDate"
+          }
+        },
+        "header" : {
+          "xml" : {
+            "name" : "Header"
+          },
+          "$ref" : "#/definitions/MessageHeaderType"
+        },
+        "baseServiceRqVersion" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "BaseServiceRqVersion"
+          },
+          "default" : "5"
+        },
+        "securityContext" : {
+          "type" : "array",
+          "xml" : {
+            "name" : "SecurityContext"
+          },
+          "items" : {
+            "xml" : {
+              "name" : "SecurityContext"
+            },
+            "$ref" : "#/definitions/SecurityContextType"
+          }
+        },
+        "traceIdent" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "TraceIdent"
+          }
+        },
+        "mfaHeader" : {
+          "xml" : {
+            "name" : "MfaHeader"
+          },
+          "$ref" : "#/definitions/MFAHeaderType"
+        },
+        "requestHeader" : {
+          "xml" : {
+            "name" : "RequestHeader"
+          },
+          "$ref" : "#/definitions/RSAAARequestHeaderType"
+        },
+        "offset" : {
+          "type" : "integer",
+          "format" : "int64",
+          "xml" : {
+            "name" : "Offset"
+          },
+          "default" : 0
+        },
+        "limit" : {
+          "type" : "integer",
+          "format" : "int64",
+          "xml" : {
+            "name" : "Limit"
+          },
+          "default" : 0
+        },
+        "sort" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Sort"
+          }
+        },
+        "sortOrder" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "SortOrder"
+          }
+        },
+        "criteria" : {
+          "xml" : {
+            "name" : "Criteria"
+          },
+          "$ref" : "#/definitions/BankCriteria"
+        },
+        "bankSummaryInquiryRqVersion" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "BankSummaryInquiryRqVersion"
+          },
+          "default" : "1"
+        }
+      }
+    },
+    "BanksResponse" : {
+      "type" : "object",
+      "required" : [ "bankSummaryInquiryRsVersion", "baseServiceRsVersion", "requestUID", "status" ],
+      "properties" : {
+        "requestUID" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "RequestUID"
+          },
+          "default" : "DummyRequestIDValue"
+        },
+        "createdDate" : {
+          "type" : "string",
+          "format" : "date-time",
+          "xml" : {
+            "name" : "CreatedDate"
+          }
+        },
+        "status" : {
+          "xml" : {
+            "name" : "Status"
+          },
+          "$ref" : "#/definitions/MessageStatusInfoType"
+        },
+        "statusChain" : {
+          "type" : "array",
+          "xml" : {
+            "name" : "StatusChain"
+          },
+          "items" : {
+            "xml" : {
+              "name" : "StatusChain"
+            },
+            "$ref" : "#/definitions/MessageStatusInfoType"
+          }
+        },
+        "baseServiceRsVersion" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "BaseServiceRsVersion"
+          },
+          "default" : "5"
+        },
+        "securityContext" : {
+          "type" : "array",
+          "xml" : {
+            "name" : "SecurityContext"
+          },
+          "items" : {
+            "xml" : {
+              "name" : "SecurityContext"
+            },
+            "$ref" : "#/definitions/SecurityContextType"
+          }
+        },
+        "traceIdent" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "TraceIdent"
+          }
+        },
+        "authReqId" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "AuthReqId"
+          }
+        },
+        "maxRows" : {
+          "type" : "integer",
+          "format" : "int64",
+          "xml" : {
+            "name" : "MaxRows"
+          },
+          "default" : 0
+        },
+        "next" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Next"
+          }
+        },
+        "previous" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Previous"
+          }
+        },
+        "banks" : {
+          "type" : "array",
+          "xml" : {
+            "name" : "Banks"
+          },
+          "items" : {
+            "xml" : {
+              "name" : "Banks"
+            },
+            "$ref" : "#/definitions/BankDetailType"
+          }
+        },
+        "bankSummaryInquiryRsVersion" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "BankSummaryInquiryRsVersion"
+          },
+          "default" : "1"
+        },
+        "mfarsHeader" : {
+          "$ref" : "#/definitions/MFARsHeaderType"
+        }
+      }
+    },
+    "BaseServiceRsType" : {
+      "type" : "object",
+      "required" : [ "baseServiceRsVersion", "requestUID", "status" ],
+      "properties" : {
+        "requestUID" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "RequestUID"
+          },
+          "default" : "DummyRequestIDValue"
+        },
+        "createdDate" : {
+          "type" : "string",
+          "format" : "date-time",
+          "xml" : {
+            "name" : "CreatedDate"
+          }
+        },
+        "status" : {
+          "xml" : {
+            "name" : "Status"
+          },
+          "$ref" : "#/definitions/MessageStatusInfoType"
+        },
+        "statusChain" : {
+          "type" : "array",
+          "xml" : {
+            "name" : "StatusChain"
+          },
+          "items" : {
+            "xml" : {
+              "name" : "StatusChain"
+            },
+            "$ref" : "#/definitions/MessageStatusInfoType"
+          }
+        },
+        "baseServiceRsVersion" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "BaseServiceRsVersion"
+          },
+          "default" : "5"
+        },
+        "securityContext" : {
+          "type" : "array",
+          "xml" : {
+            "name" : "SecurityContext"
+          },
+          "items" : {
+            "xml" : {
+              "name" : "SecurityContext"
+            },
+            "$ref" : "#/definitions/SecurityContextType"
+          }
+        },
+        "traceIdent" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "TraceIdent"
+          }
+        },
+        "authReqId" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "AuthReqId"
+          }
+        },
+        "mfarsHeader" : {
+          "$ref" : "#/definitions/MFARsHeaderType"
+        }
+      }
+    },
+    "CookieType" : {
+      "type" : "object",
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        },
+        "value" : {
+          "type" : "string"
+        },
+        "domain" : {
+          "type" : "string"
+        },
+        "maxAge" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "path" : {
+          "type" : "string"
+        },
+        "secure" : {
+          "type" : "boolean"
+        },
+        "httpOnly" : {
+          "type" : "boolean"
+        }
+      }
+    },
+    "CorrelationIdentifierType" : {
+      "type" : "object",
+      "properties" : {
+        "value" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Value"
+          }
+        },
+        "issuer" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Issuer"
+          }
+        }
+      }
+    },
+    "DynamicAttributeType" : {
+      "type" : "object",
+      "required" : [ "dynamicAttributeVersion", "extendedFieldName", "extendedFieldType", "extendedFieldValue" ],
+      "properties" : {
+        "extendedFieldName" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "ExtendedFieldName"
+          }
+        },
+        "extendedFieldValue" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "ExtendedFieldValue"
+          }
+        },
+        "extendedFieldType" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "ExtendedFieldType"
+          }
+        },
+        "dynamicAttributeVersion" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "DynamicAttributeVersion"
+          },
+          "default" : "1"
+        }
+      }
+    },
+    "MFAHeaderType" : {
+      "type" : "object",
+      "required" : [ "authenticationType" ],
+      "properties" : {
+        "authenticationType" : {
+          "type" : "string"
+        },
+        "password" : {
+          "type" : "string"
+        },
+        "passcode" : {
+          "type" : "string"
+        },
+        "oldPin" : {
+          "type" : "string"
+        },
+        "newPin" : {
+          "type" : "string"
+        },
+        "confirmNewPin" : {
+          "type" : "string"
+        },
+        "activationCode" : {
+          "type" : "string"
+        },
+        "tokenNumber" : {
+          "type" : "string"
+        },
+        "state" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "mobileNumb" : {
+          "type" : "string"
+        },
+        "primaryNumb" : {
+          "type" : "string"
+        },
+        "secNumb" : {
+          "type" : "string"
+        },
+        "oobaChannel" : {
+          "type" : "string"
+        },
+        "emailAdd" : {
+          "type" : "string"
+        },
+        "signingCount" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "mfaheaderVersion" : {
+          "type" : "string"
+        }
+      }
+    },
+    "MFARsHeaderType" : {
+      "type" : "object",
+      "required" : [ "authenticationType", "challenge", "providerId" ],
+      "properties" : {
+        "state" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "signingCount" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "additionalAttributes" : {
+          "type" : "array",
+          "xml" : {
+            "name" : "AdditionalAttributes"
+          },
+          "items" : {
+            "xml" : {
+              "name" : "AdditionalAttributes"
+            },
+            "$ref" : "#/definitions/DynamicAttributeType"
+          }
+        },
+        "providerId" : {
+          "type" : "string",
+          "default" : "UNKNOWN"
+        },
+        "challenge" : {
+          "type" : "string",
+          "default" : "UNKNOWN"
+        },
+        "authenticationType" : {
+          "type" : "string",
+          "default" : "UNKNOWN"
+        },
+        "mfarsHeaderVersion" : {
+          "type" : "string"
+        }
+      }
+    },
+    "MessageHeaderType" : {
+      "type" : "object",
+      "required" : [ "messageHeaderVersion" ],
+      "properties" : {
+        "initiatingSystem" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "InitiatingSystem"
+          }
+        },
+        "destinationSystem" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "DestinationSystem"
+          }
+        },
+        "correlationIdent" : {
+          "xml" : {
+            "name" : "CorrelationIdent"
+          },
+          "$ref" : "#/definitions/CorrelationIdentifierType"
+        },
+        "additionalAttributes" : {
+          "type" : "array",
+          "xml" : {
+            "name" : "AdditionalAttributes"
+          },
+          "items" : {
+            "xml" : {
+              "name" : "AdditionalAttributes"
+            },
+            "$ref" : "#/definitions/DynamicAttributeType"
+          }
+        },
+        "messageHeaderVersion" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "MessageHeaderVersion"
+          },
+          "default" : "2"
+        },
+        "tenantIdent" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "TenantIdent"
+          }
+        }
+      }
+    },
+    "MessageStatusInfoType" : {
+      "type" : "object",
+      "required" : [ "code", "messageStatusInfoVersion" ],
+      "properties" : {
+        "code" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Code"
+          }
+        },
+        "severity" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Severity"
+          },
+          "enum" : [ "ERROR", "INFO", "WARNING" ]
+        },
+        "details" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Details"
+          }
+        },
+        "statusDate" : {
+          "type" : "string",
+          "format" : "date-time",
+          "xml" : {
+            "name" : "StatusDate"
+          }
+        },
+        "messageStatusInfoVersion" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "MessageStatusInfoVersion"
+          },
+          "default" : "2"
+        },
+        "additionalAttributes" : {
+          "type" : "array",
+          "xml" : {
+            "name" : "AdditionalAttributes"
+          },
+          "items" : {
+            "xml" : {
+              "name" : "AdditionalAttributes"
+            },
+            "$ref" : "#/definitions/DynamicAttributeType"
+          }
+        }
+      }
+    },
+    "PhoneSetValueType" : {
+      "type" : "object",
+      "properties" : {
+        "phoneType" : {
+          "type" : "string"
+        },
+        "countryCode" : {
+          "type" : "string"
+        },
+        "areaCode" : {
+          "type" : "string"
+        },
+        "phoneNumber" : {
+          "type" : "string"
+        }
+      }
+    },
+    "PreferredBankCreateRqType" : {
+      "type" : "object",
+      "required" : [ "baseServiceRqVersion", "preferredBankCreateRqVersion", "requestUID" ],
+      "properties" : {
+        "requestUID" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "RequestUID"
+          },
+          "default" : "DummyRequestIDValue"
+        },
+        "createdDate" : {
+          "type" : "string",
+          "format" : "date-time",
+          "xml" : {
+            "name" : "CreatedDate"
+          }
+        },
+        "header" : {
+          "xml" : {
+            "name" : "Header"
+          },
+          "$ref" : "#/definitions/MessageHeaderType"
+        },
+        "baseServiceRqVersion" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "BaseServiceRqVersion"
+          },
+          "default" : "5"
+        },
+        "securityContext" : {
+          "type" : "array",
+          "xml" : {
+            "name" : "SecurityContext"
+          },
+          "items" : {
+            "xml" : {
+              "name" : "SecurityContext"
+            },
+            "$ref" : "#/definitions/SecurityContextType"
+          }
+        },
+        "traceIdent" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "TraceIdent"
+          }
+        },
+        "mfaHeader" : {
+          "xml" : {
+            "name" : "MfaHeader"
+          },
+          "$ref" : "#/definitions/MFAHeaderType"
+        },
+        "requestHeader" : {
+          "xml" : {
+            "name" : "RequestHeader"
+          },
+          "$ref" : "#/definitions/RSAAARequestHeaderType"
+        },
+        "bank" : {
+          "xml" : {
+            "name" : "Bank"
+          },
+          "$ref" : "#/definitions/BankDetailType"
+        },
+        "standardBankUniqueIdent" : {
+          "xml" : {
+            "name" : "StandardBankUniqueIdent"
+          },
+          "$ref" : "#/definitions/StandardBankIdentType"
+        },
+        "preferredBankCreateRqVersion" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "PreferredBankCreateRqVersion"
+          },
+          "default" : "1"
+        }
+      }
+    },
+    "PreferredBankCreateRsType" : {
+      "type" : "object",
+      "required" : [ "bankId", "bankIdType", "baseServiceRsVersion", "preferredBankCreateRsVersion", "requestUID", "status" ],
+      "properties" : {
+        "requestUID" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "RequestUID"
+          },
+          "default" : "DummyRequestIDValue"
+        },
+        "createdDate" : {
+          "type" : "string",
+          "format" : "date-time",
+          "xml" : {
+            "name" : "CreatedDate"
+          }
+        },
+        "status" : {
+          "xml" : {
+            "name" : "Status"
+          },
+          "$ref" : "#/definitions/MessageStatusInfoType"
+        },
+        "statusChain" : {
+          "type" : "array",
+          "xml" : {
+            "name" : "StatusChain"
+          },
+          "items" : {
+            "xml" : {
+              "name" : "StatusChain"
+            },
+            "$ref" : "#/definitions/MessageStatusInfoType"
+          }
+        },
+        "baseServiceRsVersion" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "BaseServiceRsVersion"
+          },
+          "default" : "5"
+        },
+        "securityContext" : {
+          "type" : "array",
+          "xml" : {
+            "name" : "SecurityContext"
+          },
+          "items" : {
+            "xml" : {
+              "name" : "SecurityContext"
+            },
+            "$ref" : "#/definitions/SecurityContextType"
+          }
+        },
+        "traceIdent" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "TraceIdent"
+          }
+        },
+        "authReqId" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "AuthReqId"
+          }
+        },
+        "bankId" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "BankId"
+          }
+        },
+        "bankIdType" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "BankIdType"
+          }
+        },
+        "preferredBankCreateRsVersion" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "PreferredBankCreateRsVersion"
+          },
+          "default" : "1"
+        },
+        "mfarsHeader" : {
+          "$ref" : "#/definitions/MFARsHeaderType"
+        }
+      }
+    },
+    "PreferredBankUpdateRqType" : {
+      "type" : "object",
+      "required" : [ "bank", "bankId", "bankIdType", "baseServiceRqVersion", "requestUID" ],
+      "properties" : {
+        "requestUID" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "RequestUID"
+          },
+          "default" : "DummyRequestIDValue"
+        },
+        "createdDate" : {
+          "type" : "string",
+          "format" : "date-time",
+          "xml" : {
+            "name" : "CreatedDate"
+          }
+        },
+        "header" : {
+          "xml" : {
+            "name" : "Header"
+          },
+          "$ref" : "#/definitions/MessageHeaderType"
+        },
+        "baseServiceRqVersion" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "BaseServiceRqVersion"
+          },
+          "default" : "5"
+        },
+        "securityContext" : {
+          "type" : "array",
+          "xml" : {
+            "name" : "SecurityContext"
+          },
+          "items" : {
+            "xml" : {
+              "name" : "SecurityContext"
+            },
+            "$ref" : "#/definitions/SecurityContextType"
+          }
+        },
+        "traceIdent" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "TraceIdent"
+          }
+        },
+        "mfaHeader" : {
+          "xml" : {
+            "name" : "MfaHeader"
+          },
+          "$ref" : "#/definitions/MFAHeaderType"
+        },
+        "requestHeader" : {
+          "xml" : {
+            "name" : "RequestHeader"
+          },
+          "$ref" : "#/definitions/RSAAARequestHeaderType"
+        },
+        "bankId" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "BankId"
+          }
+        },
+        "bankIdType" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "BankIdType"
+          }
+        },
+        "bank" : {
+          "xml" : {
+            "name" : "Bank"
+          },
+          "$ref" : "#/definitions/BankDetailType"
+        }
+      }
+    },
+    "QuestionAnswerValueType" : {
+      "type" : "object",
+      "properties" : {
+        "questionValue" : {
+          "$ref" : "#/definitions/QuestionValueType"
+        },
+        "answer" : {
+          "type" : "string"
+        }
+      }
+    },
+    "QuestionValueType" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "string"
+        },
+        "text" : {
+          "type" : "string"
+        },
+        "group" : {
+          "type" : "string"
+        }
+      }
+    },
+    "RSAAARequestHeaderType" : {
+      "type" : "object",
+      "properties" : {
+        "userName" : {
+          "type" : "string"
+        },
+        "groupName" : {
+          "type" : "string"
+        },
+        "organizationName" : {
+          "type" : "string"
+        },
+        "language" : {
+          "type" : "string"
+        },
+        "country" : {
+          "type" : "string"
+        },
+        "sessionID" : {
+          "type" : "string"
+        },
+        "clientSessionID" : {
+          "type" : "string"
+        },
+        "transactionString" : {
+          "type" : "string"
+        },
+        "userStatus" : {
+          "type" : "string"
+        },
+        "actionCode" : {
+          "type" : "string"
+        },
+        "answerFailCount" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "riskScore" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "oobaToken" : {
+          "type" : "string"
+        },
+        "challengeType" : {
+          "type" : "string"
+        },
+        "policy" : {
+          "type" : "string"
+        },
+        "credentialListFromRSA" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "aaEnvInfo" : {
+          "$ref" : "#/definitions/AdaptiveEnvInfoType"
+        },
+        "questionAnswerValue" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/QuestionAnswerValueType"
+          }
+        },
+        "phoneSetValue" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/PhoneSetValueType"
+          }
+        }
+      }
+    },
+    "SecurityContextType" : {
+      "type" : "object",
+      "required" : [ "format", "value" ],
+      "properties" : {
+        "format" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Format"
+          }
+        },
+        "value" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "Value"
+          }
+        }
+      }
+    },
+    "StandardBankIdentType" : {
+      "type" : "object",
+      "required" : [ "bankId", "bankIdType", "standardBankIdentVersion" ],
+      "properties" : {
+        "bankId" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "BankId"
+          }
+        },
+        "bankIdType" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "BankIdType"
+          }
+        },
+        "standardBankIdentVersion" : {
+          "type" : "string",
+          "xml" : {
+            "name" : "StandardBankIdentVersion"
+          },
+          "default" : "1"
+        }
+      }
+    }
+  }
+}
