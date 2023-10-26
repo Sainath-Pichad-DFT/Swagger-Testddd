@@ -34,7 +34,7 @@
         "parameters" : [ {
           "in" : "body",
           "name" : "body",
-          "description" : "Bank for update",
+          "description" : "Bank------ from github--- for update",
           "required" : true,
           "schema" : {
             "$ref" : "#/definitions/PreferredBankCreateRqType"
